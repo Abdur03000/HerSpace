@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
+/* ── Light theme (default) ─────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-base:       #fdf2f8;
+  --bg-card:       #ffffff;
+  --bg-section:    rgba(255,255,255,0.6);
+  --bg-muted:      #f9f0f5;
+  --text-primary:  #111827;
+  --text-secondary:#4b5563;
+  --text-muted:    #9ca3af;
+  --border-color:  #fce7f3;
+  --nav-bg:        rgba(255,255,255,0.85);
+  --input-bg:      #fdf2f8;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── Dark theme ────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg-base:       #0f0a1e;
+  --bg-card:       #1a1030;
+  --bg-section:    rgba(26,16,48,0.8);
+  --bg-muted:      #231640;
+  --text-primary:  #f3e8ff;
+  --text-secondary:#c4b5e8;
+  --text-muted:    #8b7aaa;
+  --border-color:  #3d2d6b;
+  --nav-bg:        rgba(15,10,30,0.9);
+  --input-bg:      #1a1030;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ── Base styles ───────────────────────────────────── */
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-base);
+  background-image: linear-gradient(135deg, var(--bg-base) 0%, #f5f0ff 50%, var(--bg-base) 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
 }
+
+[data-theme="dark"] body {
+  background-image: linear-gradient(135deg, #0f0a1e 0%, #1a0a2e 50%, #0f0a1e 100%);
+}
+
+/* ── Dark mode card / section overrides ────────────── */
+[data-theme="dark"] .bg-white               { background-color: var(--bg-card) !important; }
+[data-theme="dark"] .bg-white\/60           { background-color: rgba(26,16,48,0.6) !important; }
+[data-theme="dark"] .bg-white\/80           { background-color: rgba(26,16,48,0.85) !important; }
+[data-theme="dark"] .bg-white\/20           { background-color: rgba(255,255,255,0.15) !important; }
+[data-theme="dark"] .bg-pink-50             { background-color: #2d1a40 !important; }
+[data-theme="dark"] .bg-pink-50\/50         { background-color: rgba(45,26,64,0.5) !important; }
+[data-theme="dark"] .bg-purple-50           { background-color: #2d1a40 !important; }
+[data-theme="dark"] .from-purple-50,
+[data-theme="dark"] .from-purple-50.to-pink-50 { --tw-gradient-from: #231640 !important; }
+[data-theme="dark"] .to-pink-50             { --tw-gradient-to: #2d1040 !important; }
+[data-theme="dark"] .border-pink-100        { border-color: var(--border-color) !important; }
+[data-theme="dark"] .border-pink-100\/50    { border-color: rgba(61,45,107,0.5) !important; }
+[data-theme="dark"] .border-pink-200        { border-color: #4a2d6e !important; }
+[data-theme="dark"] .text-gray-900          { color: #f3e8ff !important; }
+[data-theme="dark"] .text-gray-800          { color: #e9d5ff !important; }
+[data-theme="dark"] .text-gray-700          { color: #d8b4fe !important; }
+[data-theme="dark"] .text-gray-600          { color: #c4b5e8 !important; }
+[data-theme="dark"] .text-gray-500          { color: #a78bca !important; }
+[data-theme="dark"] .text-gray-400          { color: #8b7aaa !important; }
+[data-theme="dark"] .shadow-sm              { box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important; }
+[data-theme="dark"] .shadow-md              { box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important; }
+[data-theme="dark"] .shadow-xl              { box-shadow: 0 8px 24px rgba(0,0,0,0.6) !important; }
+
+/* ── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #c084fc, #f9a8d4);
+  border-radius: 10px;
+}
+::selection { background: #f0abfc; color: #3b0764; }
