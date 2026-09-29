@@ -13,7 +13,10 @@ export const metadata: Metadata = {
 
 // Applies the stored theme before first paint. Without this the theme is only
 // set in a post-hydration effect, which shows a white flash on every load.
-const THEME_SCRIPT = `try{var t=localStorage.getItem("herspace-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}`;
+// Light is the default for anyone who has not picked a theme yet; the OS
+// `prefers-color-scheme` setting is deliberately not consulted, so a machine
+// set to dark still lands on the light site on a first visit.
+const THEME_SCRIPT = `try{var t=localStorage.getItem("herspace-theme");if(t!=="light"&&t!=="dark"){t="light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
