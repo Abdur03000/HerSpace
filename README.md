@@ -1,39 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌸 HerSpace
 
-## Getting Started
+A lifestyle content platform covering beauty, fashion, animals, lifestyle, food and travel — built with Next.js App Router and Tailwind CSS.
 
-First, run the development server:
+## Features
+
+- **6 categories** with subcategories and articles, all driven by a typed data file (`src/data/categories.ts`)
+- **Pinterest-style sticky navbar** — flat surface, neutral chips, pill search, labelled dark-mode toggle, scroll-aware shadow
+- **Instant search** (`⌘K` / `Ctrl+K`) across every article, with a results modal
+- **Dark mode** with no flash of the wrong theme — applied by a blocking script before first paint
+- **Custom category icons** as hand-built SVG glyphs, plus emoji favicon and Apple touch icon
+- **Newsletter signup** with a working subscribed state
+- **Responsive** from 320px up, with 36px+ tap targets and no horizontal overflow
+
+## Stack
+
+| | |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19, Tailwind CSS v4 |
+| Language | TypeScript 5 |
+| Icons | Inline SVG (no icon library) |
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev     # start the dev server
+npm run build   # production build
+npm run start   # serve the production build
+npm run lint    # eslint
+```
 
-## Learn More
+## Routes
 
-To learn more about Next.js, take a look at the following resources:
+| Route | Description |
+|---|---|
+| `/` | Home — hero, featured article, category grids |
+| `/category/[slug]` | Category overview |
+| `/category/[slug]/[subcategory]` | Subcategory article list |
+| `/category/[slug]/[subcategory]/[articleId]` | Full article |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   ├── category/[slug]/[subcategory]/[articleId]/page.tsx
+│   ├── globals.css          # theme tokens, dark-mode overrides, animations
+│   ├── icon.svg             # favicon
+│   └── layout.tsx           # shell, theme bootstrap script
+├── components/
+│   ├── Navbar.tsx           # sticky header
+│   ├── SearchModal.tsx      # ⌘K search
+│   ├── CategoryIcon.tsx     # per-category SVG glyphs
+│   ├── ThemeProvider.tsx    # light/dark state
+│   └── ...
+└── data/categories.ts       # all content
+```
 
-## Deploy on Vercel
+## Theming
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Colours are CSS custom properties on `:root` and `[data-theme="dark"]` (`--bg-base`, `--text-primary`, `--nav-chip`, …). Components read them through Tailwind arbitrary values such as `bg-[var(--nav-chip)]`, so a theme change never needs a rebuild.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# her-space
-# her-space
-# her-space
+## Deploy
+
+Deploy to [Vercel](https://vercel.com) or any platform that supports Next.js:
+
+```bash
+npm run build
+```
