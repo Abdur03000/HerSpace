@@ -19,13 +19,14 @@ export default function CategoryCard({
   return (
     <Link
       href={`/category/${slug}`}
-      className="group relative overflow-hidden rounded-3xl shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+      className="hs-card group relative overflow-hidden rounded-3xl shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
     >
       <div className="relative h-64 w-full">
         <Image
           src={image}
           alt={name}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />

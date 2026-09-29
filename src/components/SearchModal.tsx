@@ -63,10 +63,15 @@ export default function SearchModal() {
       {/* Search trigger button */}
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-2 rounded-full border border-pink-200 bg-pink-50 px-4 py-2 text-sm text-gray-500 transition hover:border-purple-300 hover:text-purple-600"
+        aria-label="Search"
+        className="flex h-10 w-10 items-center justify-center gap-2 rounded-full bg-[var(--nav-chip)] text-base text-gray-500 transition-colors hover:bg-[var(--nav-hover)] hover:text-gray-900 sm:w-full sm:justify-start sm:px-4"
       >
-        <span>🔍</span>
-        <span className="hidden sm:inline">Search articles…</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          strokeWidth="2" strokeLinecap="round" aria-hidden>
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-3.6-3.6" />
+        </svg>
+        <span className="hidden truncate text-sm sm:inline">Search</span>
       </button>
 
       {/* Modal backdrop */}
@@ -79,7 +84,11 @@ export default function SearchModal() {
 
             {/* Input */}
             <div className="flex items-center gap-3 border-b border-pink-100 px-5 py-4">
-              <span className="text-xl">🔍</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                strokeWidth="2" strokeLinecap="round" className="text-gray-400" aria-hidden>
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3.6-3.6" />
+              </svg>
               <input
                 ref={inputRef}
                 value={query}
@@ -115,7 +124,7 @@ export default function SearchModal() {
                         className="flex items-center gap-4 px-5 py-3 transition hover:bg-pink-50"
                       >
                         <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-xl">
-                          <Image src={r.image} alt={r.title} fill className="object-cover" />
+                          <Image src={r.image} alt={r.title} fill sizes="64px" className="object-cover" />
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="truncate text-sm font-semibold text-gray-900">{r.title}</p>

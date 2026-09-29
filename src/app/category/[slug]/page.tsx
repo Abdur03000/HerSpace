@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { categories } from "@/data/categories";
+import CategoryIcon from "@/components/CategoryIcon";
 
 type CategoryPageProps = {
   params: Promise<{ slug: string }>;
@@ -37,6 +38,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             src={category.image}
             alt={category.name}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
@@ -54,8 +56,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             </Link>
 
             <div className="flex items-center gap-4">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-4xl backdrop-blur-sm">
-                {category.emoji}
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-white backdrop-blur-sm">
+                <CategoryIcon slug={category.slug} className="h-9 w-9" />
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-widest text-pink-300">
@@ -154,7 +156,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                   href={`/category/${c.slug}`}
                   className="flex items-center gap-2 rounded-full border border-pink-200 bg-white px-5 py-3 text-sm font-semibold text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-purple-300 hover:text-purple-600 hover:shadow-md"
                 >
-                  {c.emoji} {c.name}
+                  <CategoryIcon slug={c.slug} className="mr-1.5 inline-block h-4 w-4 align-[-2px]" /> {c.name}
                 </Link>
               ))}
           </div>

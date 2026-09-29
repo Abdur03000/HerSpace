@@ -14,7 +14,7 @@ export default function SectionTitle({
   return (
     <div className={center ? "text-center" : ""}>
       {label && (
-        <p className="text-sm font-semibold uppercase tracking-widest text-pink-500">
+        <p className="text-sm font-semibold uppercase tracking-widest text-gray-500">
           {label}
         </p>
       )}

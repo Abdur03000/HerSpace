@@ -11,6 +11,10 @@
   --text-muted:    #9ca3af;
   --border-color:  #fce7f3;
   --nav-bg:        rgba(255,255,255,0.85);
+  --nav-chip:      #efefef;
+  --nav-hover:     #e2e2e2;
+  --nav-active-bg: #111827;
+  --nav-active-fg: #ffffff;
   --input-bg:      #fdf2f8;
 }
 
@@ -25,11 +29,25 @@
   --text-muted:    #8b7aaa;
   --border-color:  #3d2d6b;
   --nav-bg:        rgba(15,10,30,0.9);
+  --nav-chip:      #2a2140;
+  --nav-hover:     #3a2d5c;
+  --nav-active-bg: #f3e8ff;
+  --nav-active-fg: #1a1030;
   --input-bg:      #1a1030;
 }
 
 /* ── Base styles ───────────────────────────────────── */
 html { scroll-behavior: smooth; }
+
+/* Tailwind's preflight resets button/font but leaves `cursor` at the UA
+   default, so every button rendered with an arrow while anchors pointed. */
+button,
+[role="button"],
+a[href],
+summary,
+label[for] {
+  cursor: pointer;
+}
 
 body {
   background: var(--bg-base);
@@ -69,6 +87,30 @@ body {
 [data-theme="dark"] .shadow-md              { box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important; }
 [data-theme="dark"] .shadow-xl              { box-shadow: 0 8px 24px rgba(0,0,0,0.6) !important; }
 
+/* ── Dark mode accent colours ─────────────────────────
+   Tailwind's purple-600 (#9810fa) and pink-500 (#f6339a) only reach
+   3.2:1 and 4.4:1 on the dark surfaces above. Accent text is lifted to
+   the next lighter step so small text clears the 4.5:1 WCAG AA floor. */
+[data-theme="dark"] .text-purple-600         { color: #c084fc !important; }
+[data-theme="dark"] .text-purple-500         { color: #c084fc !important; }
+[data-theme="dark"] .text-purple-700         { color: #d8b4fe !important; }
+[data-theme="dark"] .text-pink-500           { color: #f472b6 !important; }
+[data-theme="dark"] .text-pink-600           { color: #f9a8d4 !important; }
+[data-theme="dark"] .text-pink-700           { color: #fbcfe8 !important; }
+[data-theme="dark"] .hover\:text-purple-600:hover { color: #e9d5ff !important; }
+[data-theme="dark"] .hover\:text-pink-600:hover   { color: #fbcfe8 !important; }
+
+/* ── Dark mode hover fills ────────────────────────────
+   Unlisted light-mode hover states flashed pale pink on dark surfaces. */
+[data-theme="dark"] .hover\:bg-pink-100:hover     { background-color: #3a2258 !important; }
+[data-theme="dark"] .hover\:bg-pink-50:hover      { background-color: #3a2258 !important; }
+[data-theme="dark"] .hover\:bg-purple-100:hover  { background-color: #3a2258 !important; }
+[data-theme="dark"] .hover\:bg-purple-50:hover   { background-color: #3a2258 !important; }
+[data-theme="dark"] .bg-pink-100                 { background-color: #3a2258 !important; }
+[data-theme="dark"] .bg-purple-100               { background-color: #3a2258 !important; }
+[data-theme="dark"] .border-pink-300             { border-color: #6d4aa8 !important; }
+[data-theme="dark"] .border-pink-400             { border-color: #7c5cba !important; }
+
 /* ── Scrollbar ─────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-base); }
@@ -77,3 +119,97 @@ body {
   border-radius: 10px;
 }
 ::selection { background: #f0abfc; color: #3b0764; }
+
+:focus-visible {
+  outline: 2px solid #c026d3;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ── Page transition ───────────────────────────────── */
+/* Transform-only on purpose: animating opacity would leave the
+   new page invisible at the start, which reads as a slow page
+   load. Content paints immediately and just settles into place. */
+@keyframes hs-in-fwd {
+  from { transform: translate3d(34px, 0, 0) scale(0.985); }
+  to   { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes hs-in-back {
+  from { transform: translate3d(-34px, 0, 0) scale(0.985); }
+  to   { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes hs-card-in {
+  from { transform: translate3d(0, 22px, 0) scale(0.965); }
+  to   { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+.hs-page-enter--fwd  { animation: hs-in-fwd 240ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hs-page-enter--back { animation: hs-in-back 240ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+.hs-page-enter .hs-card {
+  animation: hs-card-in 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hs-page-enter .hs-card:nth-child(1)    { animation-delay: 0.02s; }
+.hs-page-enter .hs-card:nth-child(2)    { animation-delay: 0.05s; }
+.hs-page-enter .hs-card:nth-child(3)    { animation-delay: 0.08s; }
+.hs-page-enter .hs-card:nth-child(4)    { animation-delay: 0.11s; }
+.hs-page-enter .hs-card:nth-child(n + 5) { animation-delay: 0.14s; }
+
+/* ── Shine sweep across the viewport ───────────────── */
+.hs-sweep {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 55vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(236, 72, 153, 0.16) 45%,
+    rgba(147, 51, 238, 0.16) 55%,
+    transparent 100%
+  );
+  transform: translateX(-120%) skewX(-12deg);
+  animation: hs-sweep-go 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hs-sweep-go {
+  from { transform: translateX(-120%) skewX(-12deg); }
+  to   { transform: translateX(240%) skewX(-12deg); }
+}
+
+/* ── Card hover: gradient ring ─────────────────────── */
+.hs-card { position: relative; }
+
+.hs-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+
+.hs-card:hover::before { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-page-enter,
+  .hs-page-enter .hs-card { animation: none !important; }
+  .hs-sweep { display: none; }
+}

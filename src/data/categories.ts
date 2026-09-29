@@ -4,19 +4,19 @@ export const categories = [
     slug: "beauty",
     emoji: "💄",
     description: "Skincare, makeup, haircare, nail care and beauty inspiration for every woman.",
-    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80",
     subcategories: [
       {
         name: "Skincare",
         slug: "skincare",
         description: "Simple skincare routines, tips and ideas for glowing, healthy-looking skin.",
-        image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1600&q=80",
         articles: [
           {
             id: 101,
             title: "Morning Skincare Routine for Glowing Skin",
             description: "Start your day right with this simple 5-step morning routine that gives you a radiant glow all day long.",
-            image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1600&q=80",
             readTime: "4 min read",
             author: "Sarah Ali",
             content: [
@@ -29,16 +29,16 @@ export const categories = [
               "Pro Tip: Give each product 30–60 seconds to absorb before applying the next one. This ensures each product works at its full potential and doesn't pill or mix awkwardly.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=700&q=80",
-              "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=700&q=80",
-              "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=700&q=80",
+              "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1600&q=80",
+              "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1600&q=80",
+              "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=80",
             ],
           },
           {
             id: 102,
             title: "Best Serums for Every Skin Type",
             description: "Find the perfect serum for your skin type — from hydrating hyaluronic acid to brightening vitamin C.",
-            image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1600&q=80",
             readTime: "5 min read",
             author: "Zara Khan",
             content: [
@@ -51,15 +51,15 @@ export const categories = [
               "How to Layer Serums: Apply the thinnest consistency first. If using multiple serums, wait 30 seconds between each. Never mix retinol with vitamin C — use one in the morning and one at night.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=700&q=80",
-              "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=700&q=80",
+              "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1600&q=80",
+              "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1600&q=80",
             ],
           },
           {
             id: 103,
             title: "Night Routine for Deep Skin Repair",
             description: "Your skin heals while you sleep. Here's the best nighttime routine to wake up with fresh, renewed skin.",
-            image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=80",
             readTime: "4 min read",
             author: "Amna Raza",
             content: [
@@ -72,15 +72,15 @@ export const categories = [
               "Bonus — Slugging: Apply a thin layer of petroleum jelly as the last step to seal in all moisture. This Korean beauty trick is amazing for very dry skin and speeds up healing.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=700&q=80",
-              "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=700&q=80",
+              "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=80",
+              "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1600&q=80",
             ],
           },
           {
             id: 104,
             title: "How to Get Rid of Dark Spots Naturally",
             description: "Fade dark spots, uneven skin tone and hyperpigmentation with these effective natural remedies and skincare tips.",
-            image: "https://images.unsplash.com/photo-1617897903246-719242758050?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1617897903246-719242758050?w=1600&q=80",
             readTime: "5 min read",
             author: "Dr. Zara Skin",
             content: [
@@ -94,15 +94,15 @@ export const categories = [
               "Patience is Key: Most treatments take 6–12 weeks of consistent use to show visible results. Stick with your routine and trust the process.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1617897903246-719242758050?w=700&q=80",
-              "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=700&q=80",
+              "https://images.unsplash.com/photo-1617897903246-719242758050?w=1600&q=80",
+              "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1600&q=80",
             ],
           },
           {
             id: 105,
             title: "Glass Skin: The Korean Skincare Secret",
             description: "Achieve the flawless, luminous glass skin look that has taken the beauty world by storm — here's the full routine.",
-            image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1600&q=80",
             readTime: "6 min read",
             author: "K-Beauty Expert",
             content: [
@@ -118,9 +118,9 @@ export const categories = [
               "The glass skin secret is not one product — it's layers of lightweight hydration built up consistently over weeks.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=700&q=80",
-              "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=700&q=80",
-              "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=700&q=80",
+              "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1600&q=80",
+              "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1600&q=80",
+              "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=80",
             ],
           },
         ],
@@ -129,13 +129,13 @@ export const categories = [
         name: "Makeup",
         slug: "makeup",
         description: "Everyday makeup ideas, tutorials and beauty inspiration. From natural no-makeup looks to glam evening styles.",
-        image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80",
         articles: [
           {
             id: 111,
             title: "Everyday Natural Makeup Look",
             description: "A quick and easy everyday makeup look that enhances your natural beauty in just 10 minutes.",
-            image: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1600&q=80",
             readTime: "5 min read",
             author: "Hina Malik",
             content: [
@@ -150,16 +150,16 @@ export const categories = [
               "Setting Spray: Finish with 2–3 sprays of setting spray to lock everything in place and give a dewy, skin-like finish that lasts all day.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&q=80",
-              "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700&q=80",
-              "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=700&q=80",
+              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1600&q=80",
+              "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600&q=80",
+              "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1600&q=80",
             ],
           },
           {
             id: 112,
             title: "Bold Lip Tutorial for Every Occasion",
             description: "Rock a bold lip with confidence. Learn how to choose the right shade and make it last all day.",
-            image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=1600&q=80",
             readTime: "4 min read",
             author: "Sana Butt",
             content: [
@@ -173,15 +173,15 @@ export const categories = [
               "Keep the Rest Minimal: When wearing a bold lip, keep the rest of your makeup simple — neutral eyes, minimal blush, and clean skin. Let your lips be the star.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=700&q=80",
-              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&q=80",
+              "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=1600&q=80",
+              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1600&q=80",
             ],
           },
           {
             id: 113,
             title: "Smoky Eye for Beginners",
             description: "Step-by-step guide to achieving a perfect smoky eye, even if you're new to makeup.",
-            image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1600&q=80",
             readTime: "6 min read",
             author: "Ayesha Noor",
             content: [
@@ -197,16 +197,16 @@ export const categories = [
               "Step 8 — Mascara: Apply 2–3 coats of volumizing mascara to your upper lashes. Curl them first for maximum impact.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=700&q=80",
-              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&q=80",
-              "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700&q=80",
+              "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1600&q=80",
+              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1600&q=80",
+              "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600&q=80",
             ],
           },
           {
             id: 114,
             title: "Dewy Skin Foundation Routine",
             description: "Get that coveted glass-skin, dewy finish with the right foundation and application technique.",
-            image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600&q=80",
             readTime: "5 min read",
             author: "Mariam Shah",
             content: [
@@ -221,15 +221,15 @@ export const categories = [
               "Finishing Touch — Facial Mist: Spritz a hydrating facial mist or setting spray all over your face at the end. This blurs any powdery areas and gives your entire face a fresh, dewy glow.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700&q=80",
-              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&q=80",
+              "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600&q=80",
+              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1600&q=80",
             ],
           },
           {
             id: 115,
             title: "Glossy Makeup Look: Summer Edition",
             description: "Fresh, glowy and effortlessly pretty — the glossy summer makeup look every girl needs to try.",
-            image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80",
             readTime: "4 min read",
             author: "Fatima Iqbal",
             content: [
@@ -243,15 +243,15 @@ export const categories = [
               "This entire look can be done in under 7 minutes and looks absolutely stunning in summer photos.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=700&q=80",
-              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&q=80",
+              "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80",
+              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1600&q=80",
             ],
           },
           {
             id: 116,
             title: "Perfect Contouring Guide for Beginners",
             description: "Sculpt and define your facial features with contouring — a beginner-friendly step-by-step guide.",
-            image: "https://images.unsplash.com/photo-1599507593499-a3f7d7d97667?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1599507593499-a3f7d7d97667?w=1600&q=80",
             readTime: "6 min read",
             author: "Ayesha Noor",
             content: [
@@ -266,15 +266,15 @@ export const categories = [
               "Less is More: Start with a very light application. Natural-looking contour is far more flattering than heavy-handed sculpting that looks cakey in photos and real life.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1599507593499-a3f7d7d97667?w=700&q=80",
-              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&q=80",
+              "https://images.unsplash.com/photo-1599507593499-a3f7d7d97667?w=1600&q=80",
+              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1600&q=80",
             ],
           },
           {
             id: 117,
             title: "No-Makeup Makeup: Effortless & Beautiful",
             description: "Look your best while appearing completely bare-faced — the art of the no-makeup makeup look.",
-            image: "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=1600&q=80",
             readTime: "4 min read",
             author: "Hina Malik",
             content: [
@@ -289,15 +289,15 @@ export const categories = [
               "The secret of this look is that it actually requires quality products and precise application — it just looks like nothing was done.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=700&q=80",
-              "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700&q=80",
+              "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=1600&q=80",
+              "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600&q=80",
             ],
           },
           {
             id: 118,
             title: "Eye Makeup for Different Eye Shapes",
             description: "Learn which eye makeup techniques suit your unique eye shape — hooded, almond, round, monolid and more.",
-            image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1600&q=80",
             readTime: "7 min read",
             author: "Mariam Shah",
             content: [
@@ -311,9 +311,9 @@ export const categories = [
               "Close-Set Eyes — Create Distance: Apply lighter shades in the inner corner and darker shades in the outer corner. Extend the winged liner outward for a wider appearance.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=700&q=80",
-              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=700&q=80",
-              "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=700&q=80",
+              "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1600&q=80",
+              "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1600&q=80",
+              "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80",
             ],
           },
         ],
@@ -322,13 +322,13 @@ export const categories = [
         name: "Hair Care",
         slug: "hair-care",
         description: "Hair care routines, styling ideas and healthy hair tips for strong, shiny, beautiful hair.",
-        image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1600&q=80",
         articles: [
           {
             id: 121,
             title: "Weekly Hair Mask for Silky Smooth Hair",
             description: "Treat your hair once a week to a deep conditioning mask and see the transformation in just 4 weeks.",
-            image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1600&q=80",
             readTime: "4 min read",
             author: "Nadia Hussain",
             content: [
@@ -341,14 +341,14 @@ export const categories = [
               "Rinse Properly: Always rinse hair masks with cool water — this seals the hair cuticle and adds extra shine.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80",
+              "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1600&q=80",
             ],
           },
           {
             id: 122,
             title: "Best Hair Oils for Every Hair Type",
             description: "From argan to coconut oil — find the best hair oil for your specific hair type and needs.",
-            image: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=1600&q=80",
             readTime: "5 min read",
             author: "Sara Javed",
             content: [
@@ -361,8 +361,8 @@ export const categories = [
               "How to Use Hair Oil Without Greasiness: Less is more. Start with 2–3 drops for fine hair or 5–6 drops for thick hair. Apply to the ends first, then work upward. Avoid the roots unless doing a scalp treatment.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=700&q=80",
-              "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80",
+              "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=1600&q=80",
+              "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1600&q=80",
             ],
           },
         ],
@@ -371,13 +371,13 @@ export const categories = [
         name: "Nail Care",
         slug: "nail-care",
         description: "Nail care routines, nail art ideas and beautiful nail inspiration.",
-        image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&q=80",
         articles: [
           {
             id: 131,
             title: "Nail Care Routine for Strong Nails",
             description: "A simple weekly nail care routine to strengthen, shape and hydrate your nails naturally.",
-            image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&q=80",
             readTime: "4 min read",
             author: "Sana Ali",
             content: [
@@ -391,7 +391,7 @@ export const categories = [
               "Daily Habits: Apply cuticle oil every night before bed. Wear gloves when washing dishes. Avoid using your nails as tools — this is the number one cause of breakage.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700&q=80",
+              "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&q=80",
             ],
           },
         ],
@@ -400,13 +400,13 @@ export const categories = [
         name: "Beauty Tips",
         slug: "beauty-tips",
         description: "Useful beauty tips, routines and simple everyday ideas every woman should know.",
-        image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600&q=80",
         articles: [
           {
             id: 141,
             title: "10 Beauty Tips Every Girl Should Know",
             description: "Simple but powerful beauty tips that can transform your everyday routine and enhance your natural beauty.",
-            image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600&q=80",
             readTime: "6 min read",
             author: "Hira Baig",
             content: [
@@ -423,8 +423,8 @@ export const categories = [
               "Tip 10 — Drink Water and Sleep Well: No amount of makeup can replace healthy skin, and healthy skin starts from within. Aim for 8 glasses of water and 7–8 hours of sleep every night.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700&q=80",
-              "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=700&q=80",
+              "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600&q=80",
+              "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1600&q=80",
             ],
           },
         ],
@@ -437,19 +437,19 @@ export const categories = [
     slug: "fashion",
     emoji: "👗",
     description: "Outfits, styling ideas, accessories and fashion inspiration for every style.",
-    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&q=80",
     subcategories: [
       {
         name: "Outfits",
         slug: "outfits",
         description: "Casual and stylish outfit ideas for everyday life.",
-        image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&q=80",
         articles: [
           {
             id: 201,
             title: "Casual Chic: Easy Everyday Outfits",
             description: "Look effortlessly stylish every day with these simple outfit combinations that work for any occasion.",
-            image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&q=80",
             readTime: "4 min read",
             author: "Zainab Mir",
             content: [
@@ -461,8 +461,8 @@ export const categories = [
               "Key Styling Tips: Tuck in your top (at least partially) to define your waist. Add a belt to any loose outfit to give it structure. Choose one statement piece per outfit and keep the rest simple.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700&q=80",
-              "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=700&q=80",
+              "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&q=80",
+              "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1600&q=80",
             ],
           },
         ],
@@ -471,13 +471,13 @@ export const categories = [
         name: "Dresses",
         slug: "dresses",
         description: "Beautiful dress ideas and styling inspiration for every season and occasion.",
-        image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1600&q=80",
         articles: [
           {
             id: 211,
             title: "Floral Dresses for Spring",
             description: "Embrace the season with beautiful floral dresses that are perfect for spring outings.",
-            image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1600&q=80",
             readTime: "3 min read",
             author: "Maryam Tariq",
             content: [
@@ -488,7 +488,7 @@ export const categories = [
               "Accessorize Simply: Let the dress be the statement. Add small gold jewelry, a delicate necklace, or simple stud earrings. A woven straw bag or a simple clutch completes the spring aesthetic perfectly.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=700&q=80",
+              "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1600&q=80",
             ],
           },
         ],
@@ -497,13 +497,13 @@ export const categories = [
         name: "Shoes",
         slug: "shoes",
         description: "Explore different shoe styles and outfit combinations.",
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1600&q=80",
         articles: [
           {
             id: 221,
             title: "Best Shoes for Every Season",
             description: "From summer sandals to cozy winter boots — the must-have shoes for your wardrobe all year.",
-            image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1600&q=80",
             readTime: "4 min read",
             author: "Noor Fatima",
             content: [
@@ -515,7 +515,7 @@ export const categories = [
               "Year-Round — Ballet Flats: The ballet flat is having a major fashion moment. In classic black, cream, or a bold color, they look polished and can be worn from morning to night.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&q=80",
+              "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1600&q=80",
             ],
           },
         ],
@@ -524,13 +524,13 @@ export const categories = [
         name: "Bags",
         slug: "bags",
         description: "Cute and stylish bags for different occasions.",
-        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1600&q=80",
         articles: [
           {
             id: 231,
             title: "Must-Have Bags for Every Woman",
             description: "The essential bag styles every woman should own — from a classic tote to a structured handbag.",
-            image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1600&q=80",
             readTime: "4 min read",
             author: "Aisha Riaz",
             content: [
@@ -542,7 +542,7 @@ export const categories = [
               "The Weekend Bag: A structured shoulder bag or slightly larger tote for weekends, travel, and longer days out. Look for one with multiple compartments to keep things organized.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=700&q=80",
+              "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1600&q=80",
             ],
           },
         ],
@@ -551,13 +551,13 @@ export const categories = [
         name: "Jewelry",
         slug: "jewelry",
         description: "Jewelry inspiration and styling ideas.",
-        image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1600&q=80",
         articles: [
           {
             id: 241,
             title: "How to Layer Necklaces Like a Pro",
             description: "Layering necklaces adds depth to any outfit. Learn how to mix and match for a perfect look.",
-            image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1600&q=80",
             readTime: "3 min read",
             author: "Layla Hassan",
             content: [
@@ -569,7 +569,7 @@ export const categories = [
               "Styling with Necklines: V-necks work best with a single pendant that follows the V shape. Crewnecks are perfect for layered chains. Strapless tops look best with a single statement collar necklace.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=700&q=80",
+              "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1600&q=80",
             ],
           },
         ],
@@ -578,13 +578,13 @@ export const categories = [
         name: "Accessories",
         slug: "accessories",
         description: "Accessories that complete your everyday look.",
-        image: "https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?w=1600&q=80",
         articles: [
           {
             id: 251,
             title: "Summer Accessories You Need",
             description: "From sun hats to colorful scarves — the accessories that will elevate your summer style.",
-            image: "https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?w=1600&q=80",
             readTime: "3 min read",
             author: "Dina Malik",
             content: [
@@ -596,7 +596,7 @@ export const categories = [
               "Woven Tote Bag: A woven rattan or straw tote is the quintessential summer bag. It goes with everything from beach coverups to casual jeans outfits.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?w=700&q=80",
+              "https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?w=1600&q=80",
             ],
           },
         ],
@@ -609,19 +609,19 @@ export const categories = [
     slug: "animals",
     emoji: "🐱",
     description: "Cute animals, adorable pets, wildlife stories and everything you love about the animal world.",
-    image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80",
     subcategories: [
       {
         name: "Cats",
         slug: "cats",
         description: "Adorable cats, interesting facts, cat care tips and everything feline.",
-        image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80",
         articles: [
           {
             id: 301,
             title: "The Most Adorable Cat Breeds in the World",
             description: "From fluffy Persians to sleek Siamese — discover the most beautiful and adorable cat breeds.",
-            image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80",
             readTime: "5 min read",
             author: "Cat Lovers Club",
             content: [
@@ -634,16 +634,16 @@ export const categories = [
               "Abyssinian — The Adventurer: For those who want an active, playful cat, the Abyssinian is perfect. They're always exploring, climbing, and playing. Their ticked coat gives them a wild appearance but they're completely domestic.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=700&q=80",
-              "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=700&q=80",
-              "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=700&q=80",
+              "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80",
+              "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1600&q=80",
+              "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=1600&q=80",
             ],
           },
           {
             id: 302,
             title: "How to Take Care of Your Cat",
             description: "Everything you need to know about keeping your cat healthy, happy and loved.",
-            image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1600&q=80",
             readTime: "6 min read",
             author: "Dr. Amina Vet",
             content: [
@@ -656,15 +656,15 @@ export const categories = [
               "Signs Your Cat is Happy: Slow blinking at you (a sign of trust), kneading (baking biscuits), purring, headbutting, and bringing you 'gifts'. A happy cat holds its tail upright with a slight curl at the tip.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=700&q=80",
-              "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=700&q=80",
+              "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1600&q=80",
+              "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80",
             ],
           },
           {
             id: 303,
             title: "Fun Facts About Cats That Will Amaze You",
             description: "Did you know cats can jump 5 times their own height? Discover more amazing cat facts.",
-            image: "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=1600&q=80",
             readTime: "4 min read",
             author: "Cat Lovers Club",
             content: [
@@ -678,15 +678,15 @@ export const categories = [
               "A Group of Cats is Called a 'Clowder': And kittens have their own collective noun — a 'kindle'. A female cat is a 'queen' and a male is a 'tom'.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=700&q=80",
-              "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=700&q=80",
+              "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=1600&q=80",
+              "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80",
             ],
           },
           {
             id: 304,
             title: "Cute Cat Moments That Will Melt Your Heart",
             description: "A collection of the most heartwarming cat moments and stories from around the world.",
-            image: "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=1600&q=80",
             readTime: "3 min read",
             author: "HerSpace Team",
             content: [
@@ -698,16 +698,16 @@ export const categories = [
               "The Head Bump: When a cat headbutts you (bunts), they're marking you as their territory — in the most loving way possible. They have scent glands in their forehead and they're sharing their scent with you.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=700&q=80",
-              "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=700&q=80",
-              "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=700&q=80",
+              "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=1600&q=80",
+              "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80",
+              "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1600&q=80",
             ],
           },
           {
             id: 305,
             title: "Best Cat Toys to Keep Your Cat Happy",
             description: "Keep your cat entertained, active and mentally stimulated with the best toys for every cat personality.",
-            image: "https://images.unsplash.com/photo-1513360371669-4adf46583a55?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1513360371669-4adf46583a55?w=1600&q=80",
             readTime: "4 min read",
             author: "Cat Lovers Club",
             content: [
@@ -721,15 +721,15 @@ export const categories = [
               "Window Perch: This is technically a toy for their mind. A window perch gives cats access to 'cat TV' — watching birds, squirrels, and the outside world. Hours of entertainment.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1513360371669-4adf46583a55?w=700&q=80",
-              "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=700&q=80",
+              "https://images.unsplash.com/photo-1513360371669-4adf46583a55?w=1600&q=80",
+              "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80",
             ],
           },
           {
             id: 306,
             title: "Kitten Care: Your First Week Guide",
             description: "Bringing a kitten home is magical. Here's everything you need to know to give them the perfect start.",
-            image: "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=1600&q=80",
             readTime: "6 min read",
             author: "Dr. Amina Vet",
             content: [
@@ -744,9 +744,9 @@ export const categories = [
               "Sleep: Kittens sleep 16–20 hours a day. This is completely normal — they're growing rapidly. Provide a warm, cozy bed in a safe spot.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=700&q=80",
-              "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=700&q=80",
-              "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=700&q=80",
+              "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=1600&q=80",
+              "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1600&q=80",
+              "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80",
             ],
           },
         ],
@@ -755,13 +755,13 @@ export const categories = [
         name: "Dogs",
         slug: "dogs",
         description: "Dog care, adorable dog moments, training tips and everything about man's best friend.",
-        image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=1600&q=80",
         articles: [
           {
             id: 311,
             title: "Cutest Dog Breeds for Families",
             description: "Find the perfect furry friend for your family — gentle, loving and fun breeds.",
-            image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=1600&q=80",
             readTime: "5 min read",
             author: "Puppy Love Team",
             content: [
@@ -774,15 +774,15 @@ export const categories = [
               "French Bulldog — The Urban Companion: Frenchies are compact, low-energy, and absolutely adorable. They love attention and are great for city living. Their expressive faces and snuggly nature make them irresistible.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1552053831-71594a27632d?w=700&q=80",
-              "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=700&q=80",
+              "https://images.unsplash.com/photo-1552053831-71594a27632d?w=1600&q=80",
+              "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=1600&q=80",
             ],
           },
           {
             id: 312,
             title: "Dog Care Guide for New Pet Owners",
             description: "Everything a new dog owner needs to know — feeding, grooming, training and keeping them happy.",
-            image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1600&q=80",
             readTime: "7 min read",
             author: "Dr. Amina Vet",
             content: [
@@ -796,15 +796,15 @@ export const categories = [
               "Love and Attention: Dogs are social creatures who need your time and affection. Set aside dedicated playtime and cuddle time every day. A loved dog is a happy dog.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=700&q=80",
-              "https://images.unsplash.com/photo-1552053831-71594a27632d?w=700&q=80",
+              "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1600&q=80",
+              "https://images.unsplash.com/photo-1552053831-71594a27632d?w=1600&q=80",
             ],
           },
           {
             id: 313,
             title: "Happy Dogs: Adorable Moments Collection",
             description: "A gallery of the most joyful and heart-melting dog moments that will instantly make you smile.",
-            image: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=1600&q=80",
             readTime: "3 min read",
             author: "HerSpace Team",
             content: [
@@ -816,15 +816,15 @@ export const categories = [
               "Playing Fetch Forever: Some dogs will bring a ball back 100 times without ever getting bored. Their enthusiasm and dedication to the game is pure and wholesome.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=700&q=80",
-              "https://images.unsplash.com/photo-1552053831-71594a27632d?w=700&q=80",
+              "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=1600&q=80",
+              "https://images.unsplash.com/photo-1552053831-71594a27632d?w=1600&q=80",
             ],
           },
           {
             id: 314,
             title: "Basic Dog Training Commands Every Dog Should Know",
             description: "Teach your dog these 6 essential commands for a happy, safe and well-behaved life together.",
-            image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1600&q=80",
             readTime: "6 min read",
             author: "Puppy Love Team",
             content: [
@@ -838,15 +838,15 @@ export const categories = [
               "Command 6 — Heel: Teach your dog to walk calmly beside you without pulling. Start indoors. Say 'Heel' and reward them for walking next to your leg. Gradually move to more distracting environments.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=700&q=80",
-              "https://images.unsplash.com/photo-1552053831-71594a27632d?w=700&q=80",
+              "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1600&q=80",
+              "https://images.unsplash.com/photo-1552053831-71594a27632d?w=1600&q=80",
             ],
           },
           {
             id: 315,
             title: "Puppy Photoshoot: Tips for the Cutest Pictures",
             description: "Capture your puppy's adorable moments forever — here's how to take beautiful photos of your dog.",
-            image: "https://images.unsplash.com/photo-1568572933382-74d440642117?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1568572933382-74d440642117?w=1600&q=80",
             readTime: "4 min read",
             author: "HerSpace Team",
             content: [
@@ -860,9 +860,9 @@ export const categories = [
               "Edit Simply: A little brightness, contrast, and warmth goes a long way. Apps like Lightroom Mobile or VSCO can turn a good photo into a stunning one in seconds.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1568572933382-74d440642117?w=700&q=80",
-              "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=700&q=80",
-              "https://images.unsplash.com/photo-1552053831-71594a27632d?w=700&q=80",
+              "https://images.unsplash.com/photo-1568572933382-74d440642117?w=1600&q=80",
+              "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=1600&q=80",
+              "https://images.unsplash.com/photo-1552053831-71594a27632d?w=1600&q=80",
             ],
           },
         ],
@@ -871,13 +871,13 @@ export const categories = [
         name: "Birds",
         slug: "birds",
         description: "Beautiful birds from around the world — colors, songs, habits and amazing stories.",
-        image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1600&q=80",
         articles: [
           {
             id: 321,
             title: "The Most Colorful Birds in the World",
             description: "Nature's most beautiful birds — a stunning visual journey through the most colorful species on earth.",
-            image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1600&q=80",
             readTime: "5 min read",
             author: "Nature Lovers",
             content: [
@@ -890,15 +890,15 @@ export const categories = [
               "Bird of Paradise — The Most Extravagant: Found in Papua New Guinea, Birds of Paradise have evolved the most extraordinary plumage of any bird. Males perform elaborate dances displaying their incredible feathers to attract females.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=700&q=80",
-              "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=700&q=80",
+              "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1600&q=80",
+              "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=1600&q=80",
             ],
           },
           {
             id: 322,
             title: "How to Care for Pet Birds",
             description: "A complete guide to keeping your pet bird happy, healthy and entertained at home.",
-            image: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=1600&q=80",
             readTime: "5 min read",
             author: "Dr. Amina Vet",
             content: [
@@ -911,15 +911,15 @@ export const categories = [
               "Talking and Bonding: Talk to your bird every day. Birds learn from repetition — say the same words and phrases consistently. Building a bond takes time and patience, but once formed, it's incredibly rewarding.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=700&q=80",
-              "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=700&q=80",
+              "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=1600&q=80",
+              "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1600&q=80",
             ],
           },
           {
             id: 323,
             title: "Parrots: The Smartest Birds on Earth",
             description: "Parrots can talk, solve puzzles and even understand emotions. Learn about these incredible birds.",
-            image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1600&q=80",
             readTime: "5 min read",
             author: "Nature Lovers",
             content: [
@@ -932,8 +932,8 @@ export const categories = [
               "Incredible Memory: Parrots can remember people, events, and words for years. They never forget someone who was kind — or unkind — to them.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=700&q=80",
-              "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=700&q=80",
+              "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1600&q=80",
+              "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1600&q=80",
             ],
           },
         ],
@@ -946,19 +946,19 @@ export const categories = [
     slug: "lifestyle",
     emoji: "🌸",
     description: "Daily routines, self care, productivity and ideas for a better, more fulfilling everyday life.",
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=80",
     subcategories: [
       {
         name: "Daily Routines",
         slug: "daily-routines",
         description: "Simple routines for a better everyday life.",
-        image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80",
         articles: [
           {
             id: 401,
             title: "The Perfect Morning Routine",
             description: "How you start your morning sets the tone for the whole day. Build a morning routine that energizes you.",
-            image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80",
             readTime: "5 min read",
             author: "Wellness Team",
             content: [
@@ -971,7 +971,7 @@ export const categories = [
               "Set Your Intentions: Before diving into tasks, write down 3 things you want to accomplish today. This creates focus and gives you a sense of purpose and direction.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700&q=80",
+              "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80",
             ],
           },
         ],
@@ -980,13 +980,13 @@ export const categories = [
         name: "Self Care",
         slug: "self-care",
         description: "Ideas for relaxing, recharging and taking care of yourself.",
-        image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=80",
         articles: [
           {
             id: 411,
             title: "Self Care Sunday Ideas",
             description: "Make every Sunday a day of rest and renewal with these self-care ideas.",
-            image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=80",
             readTime: "4 min read",
             author: "Wellness Team",
             content: [
@@ -999,7 +999,7 @@ export const categories = [
               "Prepare for the Week: End your Sunday by preparing for the week — lay out outfits, meal prep if you enjoy it, and write a simple plan. This transforms Sunday anxiety into Sunday excitement.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=700&q=80",
+              "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=80",
             ],
           },
         ],
@@ -1008,13 +1008,13 @@ export const categories = [
         name: "Productivity",
         slug: "productivity",
         description: "Simple productivity ideas and routines to help you get more done.",
-        image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600&q=80",
         articles: [
           {
             id: 421,
             title: "How to Stay Productive Working from Home",
             description: "Tips, tools and habits to stay focused and productive when working from home.",
-            image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600&q=80",
             readTime: "5 min read",
             author: "Productivity Team",
             content: [
@@ -1027,7 +1027,7 @@ export const categories = [
               "Stay Connected: Combat isolation by scheduling virtual coffee chats with colleagues, joining online communities, or working from a café once a week.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=700&q=80",
+              "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600&q=80",
             ],
           },
         ],
@@ -1040,19 +1040,19 @@ export const categories = [
     slug: "food",
     emoji: "🍰",
     description: "Delicious recipes, desserts, drinks and food inspiration for every taste and occasion.",
-    image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1600&q=80",
     subcategories: [
       {
         name: "Desserts",
         slug: "desserts",
         description: "Sweet desserts and delicious recipe ideas.",
-        image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1600&q=80",
         articles: [
           {
             id: 501,
             title: "Easy Chocolate Lava Cake Recipe",
             description: "A rich, gooey chocolate lava cake that looks impressive but is surprisingly easy to make at home.",
-            image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1600&q=80",
             readTime: "4 min read",
             author: "Chef Nadia",
             content: [
@@ -1066,7 +1066,7 @@ export const categories = [
               "Step 6 — Serve Immediately: Run a knife around the edge and immediately invert onto a plate. The lava will flow for about 30 seconds before the cake sets. Serve with vanilla ice cream.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=700&q=80",
+              "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1600&q=80",
             ],
           },
         ],
@@ -1075,13 +1075,13 @@ export const categories = [
         name: "Breakfast",
         slug: "breakfast",
         description: "Easy and delicious breakfast ideas to start your day.",
-        image: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=1600&q=80",
         articles: [
           {
             id: 511,
             title: "Fluffy Pancakes in 15 Minutes",
             description: "Light, fluffy and golden pancakes that the whole family will love. Ready in just 15 minutes.",
-            image: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=1600&q=80",
             readTime: "3 min read",
             author: "Chef Nadia",
             content: [
@@ -1095,7 +1095,7 @@ export const categories = [
               "Step 5: Cook until bubbles form on the surface and edges look set (about 2 minutes). Flip and cook 1 more minute. Serve immediately with maple syrup and fresh berries.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=700&q=80",
+              "https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=1600&q=80",
             ],
           },
         ],
@@ -1104,13 +1104,13 @@ export const categories = [
         name: "Drinks",
         slug: "drinks",
         description: "Refreshing drinks and beverage ideas.",
-        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=1600&q=80",
         articles: [
           {
             id: 521,
             title: "Dalgona Coffee: The Viral Whipped Coffee",
             description: "Make the internet's most loved coffee drink at home with just 3 ingredients in minutes.",
-            image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=1600&q=80",
             readTime: "3 min read",
             author: "Coffee Corner",
             content: [
@@ -1123,7 +1123,7 @@ export const categories = [
               "Variations: Try it hot — pour the coffee mixture over warm milk. Make a matcha version using matcha powder and sugar. Or use hot chocolate powder for a mocha version.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=700&q=80",
+              "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=1600&q=80",
             ],
           },
         ],
@@ -1136,19 +1136,19 @@ export const categories = [
     slug: "travel",
     emoji: "✈️",
     description: "Beautiful destinations, travel inspiration, tips and dream trips from around the world.",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80",
     subcategories: [
       {
         name: "Destinations",
         slug: "destinations",
         description: "Beautiful destinations around the world.",
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80",
         articles: [
           {
             id: 601,
             title: "Top 10 Most Beautiful Places to Visit",
             description: "A curated list of the world's most breathtaking destinations that belong on every travel bucket list.",
-            image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80",
             readTime: "6 min read",
             author: "Travel Team",
             content: [
@@ -1165,8 +1165,8 @@ export const categories = [
               "10. New Zealand: From fjords to beaches to volcanic plateaus — New Zealand's landscapes are so diverse and stunning it was used as Middle Earth in the Lord of the Rings films.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=80",
-              "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=700&q=80",
+              "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80",
+              "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&q=80",
             ],
           },
         ],
@@ -1175,13 +1175,13 @@ export const categories = [
         name: "Beach Trips",
         slug: "beach-trips",
         description: "Beach destinations and travel inspiration.",
-        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80",
         articles: [
           {
             id: 611,
             title: "Best Beach Destinations for 2024",
             description: "The world's most stunning beaches — from the Maldives to the Amalfi Coast.",
-            image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80",
             readTime: "5 min read",
             author: "Travel Team",
             content: [
@@ -1193,7 +1193,7 @@ export const categories = [
               "Pink Sand Beach, Bahamas: Harbour Island's famous pink sand beach gets its color from tiny red foraminifera (organisms) that mix with the white sand. Walking on a pink beach as the sun sets is an unforgettable experience.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700&q=80",
+              "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80",
             ],
           },
         ],
@@ -1202,13 +1202,13 @@ export const categories = [
         name: "City Travel",
         slug: "city-travel",
         description: "Explore beautiful cities around the world.",
-        image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80",
         articles: [
           {
             id: 621,
             title: "Paris: A City of Dreams",
             description: "Explore the most romantic city in the world — from the Eiffel Tower to charming Parisian cafes.",
-            image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80",
+            image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1600&q=80",
             readTime: "5 min read",
             author: "Travel Team",
             content: [
@@ -1220,8 +1220,8 @@ export const categories = [
               "Shopping: Browse vintage stores in Le Marais, concept stores like Merci, and the bouquinistes (secondhand book stalls) along the Seine. The Marché aux Puces de Saint-Ouen is the world's largest antique market.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=700&q=80",
-              "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=700&q=80",
+              "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1600&q=80",
+              "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80",
             ],
           },
         ],

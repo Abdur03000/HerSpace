@@ -24,7 +24,7 @@ export default function ArticleCard({
   return (
     <Link
       href={href}
-      className="group block overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+      className="hs-card group block overflow-hidden rounded-3xl border border-pink-100 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
     >
       {/* Image */}
       <div className="relative h-52 overflow-hidden">
@@ -32,6 +32,7 @@ export default function ArticleCard({
           src={image}
           alt={title}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition group-hover:opacity-100" />

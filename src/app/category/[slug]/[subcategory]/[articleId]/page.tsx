@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { categories } from "@/data/categories";
 import { notFound } from "next/navigation";
+import CategoryIcon from "@/components/CategoryIcon";
 
 type ArticlePageProps = {
   params: Promise<{ slug: string; subcategory: string; articleId: string }>;
@@ -50,13 +51,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
             {/* Breadcrumb */}
             <nav className="mb-5 flex flex-wrap items-center gap-2 text-sm text-white/55">
-              <Link href="/" className="transition hover:text-white">Home</Link>
+              <Link href="/" className="py-2 transition hover:text-white">Home</Link>
               <span className="text-white/30">›</span>
-              <Link href={`/category/${slug}`} className="transition hover:text-white">
-                {category.emoji} {category.name}
+              <Link href={`/category/${slug}`} className="py-2 transition hover:text-white">
+                <CategoryIcon slug={category.slug} className="mr-1.5 inline-block h-4 w-4 align-[-2px]" /> {category.name}
               </Link>
               <span className="text-white/30">›</span>
-              <Link href={`/category/${slug}/${subcategory}`} className="transition hover:text-white">
+              <Link href={`/category/${slug}/${subcategory}`} className="py-2 transition hover:text-white">
                 {sub.name}
               </Link>
             </nav>
@@ -192,7 +193,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 href={`/category/${slug}`}
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-200 transition hover:opacity-90"
               >
-                All {category.name} {category.emoji}
+                All {category.name} <CategoryIcon slug={category.slug} className="inline-block h-5 w-5 align-[-3px]" />
               </Link>
             </div>
 
@@ -224,7 +225,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                       {icon}
                     </span>
                     <div>
-                      <p className="text-[11px] uppercase tracking-wider text-gray-400">{label}</p>
+                      <p className="text-xs uppercase tracking-wider text-gray-400">{label}</p>
                       <p className="text-sm font-semibold text-gray-800">{value}</p>
                     </div>
                   </div>
@@ -281,9 +282,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   <Link
                     key={c.slug}
                     href={`/category/${c.slug}`}
-                    className="flex items-center gap-1.5 rounded-full border border-pink-100 px-3 py-1.5 text-xs font-medium text-gray-600 transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
+                    className="flex items-center gap-1.5 rounded-full border border-pink-100 px-3 py-2.5 text-xs font-medium text-gray-600 transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
                   >
-                    {c.emoji} {c.name}
+                    <CategoryIcon slug={c.slug} className="mr-1 inline-block h-3.5 w-3.5 align-[-1px]" /> {c.name}
                   </Link>
                 ))}
               </div>

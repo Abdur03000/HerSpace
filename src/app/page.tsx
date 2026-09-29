@@ -3,6 +3,7 @@ import Link from "next/link";
 import { categories } from "@/data/categories";
 import CategoryCard from "@/components/CategoryCard";
 import SectionTitle from "@/components/SectionTitle";
+import CategoryIcon from "@/components/CategoryIcon";
 
 /* ── static data ─────────────────────────────────────── */
 
@@ -11,19 +12,19 @@ const testimonials = [
     quote: "HerSpace helped me completely transform my skincare routine. My skin has never looked better!",
     name: "Ayesha K.",
     role: "Skincare Enthusiast",
-    avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80",
+    avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80",
   },
   {
     quote: "I found so many amazing fashion ideas here. The styling guides are honestly better than any magazine.",
     name: "Sara M.",
     role: "Fashion Lover",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
   },
   {
     quote: "The animal articles make my day every single time. Absolutely love this space!",
     name: "Nadia R.",
     role: "Animal Lover",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
   },
 ];
 
@@ -39,15 +40,15 @@ const beautyTips = [
 ];
 
 const instagramImages = [
-  { src: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80", alt: "Makeup", href: "/category/beauty/makeup" },
-  { src: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400&q=80", alt: "Cat", href: "/category/animals/cats" },
-  { src: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&q=80", alt: "Fashion", href: "/category/fashion/outfits" },
-  { src: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&q=80", alt: "Skincare", href: "/category/beauty/skincare" },
-  { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80", alt: "Travel", href: "/category/travel/destinations" },
-  { src: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80", alt: "Dog", href: "/category/animals/dogs" },
-  { src: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&q=80", alt: "Dessert", href: "/category/food/desserts" },
-  { src: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&q=80", alt: "Lifestyle", href: "/category/lifestyle/self-care" },
-  { src: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80", alt: "Shoes", href: "/category/fashion/shoes" },
+  { src: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80", alt: "Makeup", href: "/category/beauty/makeup" },
+  { src: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80", alt: "Cat", href: "/category/animals/cats" },
+  { src: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&q=80", alt: "Fashion", href: "/category/fashion/outfits" },
+  { src: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1600&q=80", alt: "Skincare", href: "/category/beauty/skincare" },
+  { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80", alt: "Travel", href: "/category/travel/destinations" },
+  { src: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=1600&q=80", alt: "Dog", href: "/category/animals/dogs" },
+  { src: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1600&q=80", alt: "Dessert", href: "/category/food/desserts" },
+  { src: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=80", alt: "Lifestyle", href: "/category/lifestyle/self-care" },
+  { src: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1600&q=80", alt: "Shoes", href: "/category/fashion/shoes" },
 ];
 
 /* ── featured article (Editor's Pick) ─────────────── */
@@ -69,9 +70,10 @@ export default function Home() {
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1600&q=85"
+            src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=2400&q=85"
             alt="HerSpace Hero"
             fill
+            sizes="100vw"
             className="object-cover object-top"
             priority
           />
@@ -125,7 +127,7 @@ export default function Home() {
                     href={`/category/${c.slug}`}
                     className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm transition hover:bg-white/20"
                   >
-                    {c.emoji} {c.name}
+                    <CategoryIcon slug={c.slug} className="h-3.5 w-3.5" /> {c.name}
                   </Link>
                 ))}
               </div>
@@ -176,6 +178,7 @@ export default function Home() {
               src={featuredArticle.image}
               alt={featuredArticle.title}
               fill
+              sizes="(max-width: 768px) 100vw, 616px"
               className="object-cover transition duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/30 md:block hidden" />
@@ -238,8 +241,8 @@ export default function Home() {
               href={`/category/${c.slug}`}
               className="group flex items-center gap-5 rounded-2xl border border-pink-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-purple-200 hover:shadow-xl"
             >
-              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 text-3xl shadow-inner">
-                {c.emoji}
+              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 text-purple-600 shadow-inner">
+                <CategoryIcon slug={c.slug} className="h-8 w-8" />
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="text-lg font-bold text-gray-900 transition group-hover:text-purple-600">
@@ -326,6 +329,7 @@ export default function Home() {
                     src={img.src}
                     alt={img.alt}
                     fill
+                    sizes={i === 0 ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/20" />

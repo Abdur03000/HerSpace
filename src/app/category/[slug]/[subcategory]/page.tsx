@@ -3,6 +3,7 @@ import Image from "next/image";
 import { categories } from "@/data/categories";
 import ArticleCard from "@/components/ArticleCard";
 import SectionTitle from "@/components/SectionTitle";
+import CategoryIcon from "@/components/CategoryIcon";
 
 type SubcategoryPageProps = {
   params: Promise<{ slug: string; subcategory: string }>;
@@ -65,10 +66,10 @@ export default async function SubcategoryPage({ params }: SubcategoryPageProps) 
 
             {/* Breadcrumb */}
             <div className="mb-6 flex items-center gap-2 text-sm text-white/70">
-              <Link href="/" className="hover:text-white">Home</Link>
+              <Link href="/" className="py-2 hover:text-white">Home</Link>
               <span>›</span>
-              <Link href={`/category/${category.slug}`} className="hover:text-white">
-                {category.emoji} {category.name}
+              <Link href={`/category/${category.slug}`} className="py-2 hover:text-white">
+                <CategoryIcon slug={category.slug} className="mr-1.5 inline-block h-4 w-4 align-[-2px]" /> {category.name}
               </Link>
               <span>›</span>
               <span className="text-white font-medium">{currentSubcategory.name}</span>
