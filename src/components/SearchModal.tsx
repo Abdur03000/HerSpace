@@ -64,7 +64,7 @@ export default function SearchModal() {
       <button
         onClick={() => setOpen(true)}
         aria-label="Search"
-        className="flex h-10 w-10 items-center justify-center gap-2 rounded-full bg-[var(--nav-chip)] text-base text-gray-500 transition-colors hover:bg-[var(--nav-hover)] hover:text-gray-900 sm:w-full sm:justify-start sm:px-4"
+        className="flex h-10 w-10 items-center justify-center gap-2 rounded-full border border-[var(--border-color)] bg-white text-base text-[var(--nav-text)] transition-colors hover:bg-[var(--nav-hover)] active:scale-95 sm:w-full sm:justify-start sm:px-4"
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           strokeWidth="2" strokeLinecap="round" aria-hidden>

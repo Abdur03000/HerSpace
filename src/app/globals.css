@@ -11,6 +11,7 @@
   --text-muted:    #9ca3af;
   --border-color:  #fce7f3;
   --nav-bg:        rgba(255,255,255,0.85);
+  --nav-text:      #111827;
   --nav-chip:      #efefef;
   --nav-hover:     #e2e2e2;
   --nav-active-bg: #111827;
@@ -24,15 +25,18 @@
   --bg-card:       #1a1030;
   --bg-section:    rgba(26,16,48,0.8);
   --bg-muted:      #231640;
-  --text-primary:  #f3e8ff;
-  --text-secondary:#c4b5e8;
-  --text-muted:    #8b7aaa;
+  --text-primary:  #ffffff;
+  --text-secondary:#ffffff;
+  --text-muted:    #ffffff;
   --border-color:  #3d2d6b;
   --nav-bg:        rgba(15,10,30,0.9);
+  --nav-text:      #ffffff;
   --nav-chip:      #2a2140;
   --nav-hover:     #3a2d5c;
-  --nav-active-bg: #f3e8ff;
-  --nav-active-fg: #1a1030;
+  /* The active chip used to invert to a pale fill with dark text, which
+     leaves no room for the all-white dark palette below. */
+  --nav-active-bg: #5b21b6;
+  --nav-active-fg: #ffffff;
   --input-bg:      #1a1030;
 }
 
@@ -77,28 +81,41 @@ body {
 [data-theme="dark"] .border-pink-100        { border-color: var(--border-color) !important; }
 [data-theme="dark"] .border-pink-100\/50    { border-color: rgba(61,45,107,0.5) !important; }
 [data-theme="dark"] .border-pink-200        { border-color: #4a2d6e !important; }
-[data-theme="dark"] .text-gray-900          { color: #f3e8ff !important; }
-[data-theme="dark"] .text-gray-800          { color: #e9d5ff !important; }
-[data-theme="dark"] .text-gray-700          { color: #d8b4fe !important; }
-[data-theme="dark"] .text-gray-600          { color: #c4b5e8 !important; }
-[data-theme="dark"] .text-gray-500          { color: #a78bca !important; }
-[data-theme="dark"] .text-gray-400          { color: #8b7aaa !important; }
 [data-theme="dark"] .shadow-sm              { box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important; }
 [data-theme="dark"] .shadow-md              { box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important; }
 [data-theme="dark"] .shadow-xl              { box-shadow: 0 8px 24px rgba(0,0,0,0.6) !important; }
 
-/* ── Dark mode accent colours ─────────────────────────
-   Tailwind's purple-600 (#9810fa) and pink-500 (#f6339a) only reach
-   3.2:1 and 4.4:1 on the dark surfaces above. Accent text is lifted to
-   the next lighter step so small text clears the 4.5:1 WCAG AA floor. */
-[data-theme="dark"] .text-purple-600         { color: #c084fc !important; }
-[data-theme="dark"] .text-purple-500         { color: #c084fc !important; }
-[data-theme="dark"] .text-purple-700         { color: #d8b4fe !important; }
-[data-theme="dark"] .text-pink-500           { color: #f472b6 !important; }
-[data-theme="dark"] .text-pink-600           { color: #f9a8d4 !important; }
-[data-theme="dark"] .text-pink-700           { color: #fbcfe8 !important; }
-[data-theme="dark"] .hover\:text-purple-600:hover { color: #e9d5ff !important; }
-[data-theme="dark"] .hover\:text-pink-600:hover   { color: #fbcfe8 !important; }
+/* ── Dark mode chips that never had a dark fill ───────
+   A handful of pills and buttons carry white text over a near-white
+   background, which collapses once the text above turns white. */
+[data-theme="dark"] .bg-white\/90                    { background-color: rgba(26,16,48,0.92) !important; }
+[data-theme="dark"] .bg-gray-100                    { background-color: var(--nav-chip) !important; }
+[data-theme="dark"] .hover\:bg-gray-200:hover       { background-color: var(--nav-hover) !important; }
+[data-theme="dark"] .group:hover .group-hover\:bg-white { background-color: var(--bg-card) !important; }
+[data-theme="dark"] .divide-pink-50 > :not(:last-child)  { border-color: var(--border-color) !important; }
+
+/* ── Dark mode text: everything is white ──────────────
+   Dark mode used to remap the text utilities one shade at a time
+   (lavender grays, lifted purple/pink accents). Every new component
+   landed on some shade that was still missing from the list and read
+   as dim against the dark surfaces, so the palette collapses to a
+   single white instead of chasing individual utilities.
+   `.bg-clip-text` is excluded on purpose: that headline's colour comes
+   from the gradient clipped behind the glyphs, not from `color`. */
+[data-theme="dark"] :where(p, span, div, a, li, ul, ol, dl, dt, dd,
+                           h1, h2, h3, h4, h5, h6, button, label, legend,
+                           blockquote, figcaption, caption, abbr, cite, q,
+                           strong, em, b, i, s, u, small, sub, sup, time,
+                           code, kbd, samp, var, input, textarea, select,
+                           summary, th, td):not(.bg-clip-text) {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #ffffff !important;
+  opacity: 1;
+}
 
 /* ── Dark mode hover fills ────────────────────────────
    Unlisted light-mode hover states flashed pale pink on dark surfaces. */
@@ -118,7 +135,7 @@ body {
   background: linear-gradient(to bottom, #c084fc, #f9a8d4);
   border-radius: 10px;
 }
-::selection { background: #f0abfc; color: #3b0764; }
+::selection { background: #f0abfc; color: #3b0764 !important; }
 
 :focus-visible {
   outline: 2px solid #c026d3;

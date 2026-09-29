@@ -57,14 +57,17 @@ export default function Navbar() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   const linkClass = (active: boolean) =>
-    `whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-semibold transition-colors ${
+    `whitespace-nowrap rounded-full px-3.5 py-2 text-sm transition-colors ${
       active
-        ? "bg-[var(--nav-active-bg)] text-[var(--nav-active-fg)]"
-        : "text-gray-600 hover:bg-[var(--nav-hover)] hover:text-gray-900"
+        ? "bg-[var(--nav-active-bg)] text-[var(--nav-active-fg)] font-semibold"
+        : "font-medium text-[var(--nav-text)] hover:bg-[var(--nav-hover)]"
     }`;
 
-  const iconButton =
-    "flex h-10 w-10 items-center justify-center rounded-full text-gray-700 transition-colors hover:bg-[var(--nav-hover)] hover:text-gray-900";
+  /* Outlined, not filled: a solid chip is what the active nav link uses, so
+     filled chips made the controls indistinguishable from the current tab. */
+  const controlButton =
+    "flex h-10 items-center justify-center rounded-full border border-[var(--border-color)] bg-white text-[var(--nav-text)] transition-colors hover:bg-[var(--nav-hover)] active:scale-95";
+  const iconButton = `${controlButton} w-10`;
 
   return (
     <nav
@@ -79,7 +82,7 @@ export default function Navbar() {
         <div className="flex flex-shrink-0 items-center gap-4">
           <Link href="/" className="group flex items-center gap-2.5 py-2" aria-label="HerSpace home">
             <span className="text-2xl leading-none transition-transform duration-200 group-hover:scale-110">🌸</span>
-            <span className="text-lg font-bold tracking-tight text-gray-900 sm:text-xl">
+            <span className="text-lg font-bold tracking-tight text-[var(--nav-text)] sm:text-xl">
               HerSpace
             </span>
           </Link>
@@ -118,7 +121,7 @@ export default function Navbar() {
           </a>
 
           <button onClick={toggle}
-            className="flex h-10 items-center gap-2 rounded-full bg-[var(--nav-chip)] px-3 text-sm font-semibold text-gray-700 transition-colors hover:bg-[var(--nav-hover)] hover:text-gray-900 sm:px-3.5"
+            className={`${controlButton} gap-2 px-3 text-sm font-semibold sm:px-3.5`}
             title={theme === "dark" ? "Switch to Light" : "Switch to Dark"}
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
           >
@@ -171,7 +174,7 @@ export default function Navbar() {
                   className={`rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors ${
                     isActive(`/category/${c.slug}`)
                       ? "bg-[var(--nav-active-bg)] text-[var(--nav-active-fg)]"
-                      : "text-gray-600 hover:bg-[var(--nav-hover)] hover:text-gray-900"
+                      : "text-[var(--nav-text)] hover:bg-[var(--nav-hover)]"
                   }`}
                 >
                   <CategoryIcon slug={c.slug} className="mr-2 inline-block h-4 w-4 align-[-2px]" /> {c.name}
