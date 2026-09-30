@@ -27,8 +27,19 @@ export default function PageTransition({ children }: { children: React.ReactNode
 
   return (
     <>
-      <div key={pathname} className={`hs-page-enter hs-page-enter--${nav.dir}`}>
-        {children}
+      {/* Clips the slide to the viewport. The animated child is a full-bleed
+          block, so translating it sideways pushed its border box past the
+          right edge of the document. That made the page genuinely wider
+          than the screen, which on a phone let the visual viewport pan
+          sideways and left the new page rendering with its left edge cut
+          off — worst when tapping a link far down the page, because the
+          whole document shifted at once. `clip` (not `hidden`) is used so
+          this stays a clip context and not a scroll container, leaving the
+          sticky navbar and the vertical scroll untouched. */}
+      <div className="hs-page-clip">
+        <div key={pathname} className={`hs-page-enter hs-page-enter--${nav.dir}`}>
+          {children}
+        </div>
       </div>
       <div key={`sweep-${pathname}`} className="hs-sweep" aria-hidden="true" />
     </>

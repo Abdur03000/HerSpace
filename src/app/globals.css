@@ -43,7 +43,22 @@
 }
 
 /* ── Base styles ───────────────────────────────────── */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+
+  /* The page-transition wrapper slides the whole page sideways
+     (hs-in-fwd / hs-in-back below). A horizontal transform on a
+     full-bleed block makes the document wider than the viewport, which
+     on a phone makes the page genuinely scrollable sideways and lets
+     the visual viewport get panned off-centre — the page then renders
+     with its left edge cut off. Clipping the inline axis at the root
+     stops that without any of the side effects of `overflow-x: hidden`:
+     `clip` does not create a scroll container, so the sticky navbar and
+     the vertical scroll are both untouched, and it composes with
+     `overflow-y: visible` (whereas `hidden` would silently turn the
+     vertical axis into `auto`). */
+  overflow-x: clip;
+}
 
 /* Tailwind's preflight resets button/font but leaves `cursor` at the UA
    default, so every button rendered with an arrow while anchors pointed. */
@@ -210,6 +225,14 @@ body {
 }
 
 /* ── Page transition ───────────────────────────────── */
+/* The slide is a transform on a full-bleed block, so the animated
+   element's own border box travels past the right edge of the
+   document. Without a clip boundary the page becomes wider than the
+   screen for the length of the animation, which is what let the
+   mobile visual viewport pan sideways and leave the new page cut off
+   on the left. This clips the slide to the viewport instead. */
+.hs-page-clip { overflow-x: clip; }
+
 /* Transform-only on purpose: animating opacity would leave the
    new page invisible at the start, which reads as a slow page
    load. Content paints immediately and just settles into place. */
