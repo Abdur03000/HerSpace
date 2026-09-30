@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { categories } from "@/data/categories";
 import { useTheme } from "@/components/ThemeProvider";
 import SearchModal from "@/components/SearchModal";
@@ -43,8 +43,12 @@ function MenuIcon({ open }: { open: boolean }) {
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // Offset + width of the active link, used to slide the gradient pill
+  // behind it. Null until measured so the pill never paints in the wrong spot.
+  const [pill, setPill] = useState<{ x: number; w: number } | null>(null);
   const pathname = usePathname();
   const { theme, toggle } = useTheme();
+  const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -53,137 +57,194 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+    const active = list.querySelector<HTMLElement>('[data-active="true"]');
+    setPill(active ? { x: active.offsetLeft, w: active.offsetWidth } : null);
+  }, [pathname]);
+
+  useEffect(() => {
+    // Measured off the critical path: web fonts land after first paint and
+    // nudge the links sideways, and a resize moves them too.
+    let frame = 0;
+    const remeasure = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const list = listRef.current;
+        if (!list) return;
+        const active = list.querySelector<HTMLElement>('[data-active="true"]');
+        setPill(active ? { x: active.offsetLeft, w: active.offsetWidth } : null);
+      });
+    };
+    document.fonts?.ready.then(remeasure).catch(() => {});
+    window.addEventListener("resize", remeasure);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", remeasure);
+    };
+  }, [pathname]);
+
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
-  const linkClass = (active: boolean) =>
-    `whitespace-nowrap rounded-full px-3.5 py-2 text-sm transition-colors ${
-      active
-        ? "bg-[var(--nav-active-bg)] text-[var(--nav-active-fg)] font-semibold"
-        : "font-medium text-[var(--nav-text)] hover:bg-[var(--nav-hover)]"
-    }`;
+  const links = [
+    { href: "/", name: "Home", icon: "🏠" },
+    ...categories.map((c) => ({ href: `/category/${c.slug}`, name: c.name, slug: c.slug })),
+  ];
 
-  /* Outlined, not filled: a solid chip is what the active nav link uses, so
-     filled chips made the controls indistinguishable from the current tab. */
   const controlButton =
-    "flex h-10 items-center justify-center rounded-full border border-[var(--border-color)] bg-white text-[var(--nav-text)] transition-colors hover:bg-[var(--nav-hover)] active:scale-95";
-  const iconButton = `${controlButton} w-10`;
+    "flex h-10 items-center justify-center gap-2 rounded-full border border-[var(--border-color)] bg-white px-3 text-sm font-semibold text-[var(--nav-text)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--nav-hover)] hover:shadow-md active:translate-y-0 active:scale-95 sm:px-3.5";
 
   return (
-    <nav
-      className={`sticky top-0 z-50 border-b border-[var(--border-color)] backdrop-blur-xl transition-shadow ${
-        scrolled ? "shadow-[0_2px_12px_rgba(0,0,0,0.07)]" : ""
-      }`}
-      style={{ background: "var(--nav-bg)" }}
-    >
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-1 px-5 sm:gap-2 sm:px-8">
+    <header className="sticky top-0 z-50 w-full">
+      {/* Frosted strip: the bar floats below it, so this is what keeps
+          scrolling content from showing through the gap. Deliberately not
+          blurred — a second full-width backdrop-filter on top of the bar's
+          one is what made page changes stutter. */}
+      <div
+        aria-hidden
+        className="h-3 w-full sm:h-4"
+        style={{
+          background: `linear-gradient(to bottom, ${
+            scrolled ? "var(--nav-bg-scrolled)" : "var(--nav-bg)"
+          }, transparent)`,
+        }}
+      />
 
-        {/* Logo */}
-        <div className="flex flex-shrink-0 items-center gap-4">
-          <Link href="/" className="group flex items-center gap-2.5 py-2" aria-label="HerSpace home">
-            <span className="text-2xl leading-none transition-transform duration-200 group-hover:scale-110">🌸</span>
+      <div className="px-3 pb-3 sm:px-5 sm:pb-4">
+        <div
+          className={`mx-auto flex h-16 max-w-7xl items-center gap-1 rounded-[22px] border border-[var(--border-color)] px-2.5 backdrop-blur-xl transition-shadow duration-300 sm:gap-2 sm:px-4 ${
+            scrolled
+              ? "shadow-[0_18px_45px_-22px_rgba(17,24,39,0.55)]"
+              : "shadow-[0_10px_30px_-26px_rgba(17,24,39,0.5)]"
+          }`}
+          style={{
+            background: scrolled ? "var(--nav-bg-scrolled)" : "var(--nav-bg)",
+          }}
+        >
+
+          {/* Logo */}
+          <Link href="/" className="hs-logo group flex flex-shrink-0 items-center gap-2.5" aria-label="HerSpace home">
+            <span className="hs-logo-mark" aria-hidden>🌸</span>
             <span className="text-lg font-bold tracking-tight text-[var(--nav-text)] sm:text-xl">
               HerSpace
             </span>
           </Link>
-          <span className="hidden h-7 w-px xl:block" style={{ background: "var(--border-color)" }} aria-hidden />
-        </div>
 
-        {/* Desktop nav */}
-        <div className="hidden items-center xl:ml-5 xl:flex">
-          <Link href="/" prefetch className={linkClass(isActive("/"))}>
-            Home
-          </Link>
-          {categories.map((c) => (
-            <Link
-              key={c.slug}
-              prefetch
-              href={`/category/${c.slug}`}
-              className={linkClass(isActive(`/category/${c.slug}`))}
+          {/* Desktop nav with sliding indicator */}
+          <div ref={listRef} className="relative ml-4 hidden h-11 items-center gap-1 xl:flex">
+            <span
+              aria-hidden
+              className={`absolute left-0 top-0 h-11 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 shadow-[0_10px_24px_-8px_rgba(168,85,247,0.75)] transition-[transform,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                pill ? "opacity-100" : "opacity-0"
+              }`}
+              /* Width is set without a transition on purpose: animating it
+                 relayouts the header on every frame of each page change.
+                 The slide itself is a compositor-only transform. */
+              style={{ transform: `translateX(${pill?.x ?? 0}px)`, width: pill?.w ?? 0 }}
+            />
+            {links.map((l) => {
+              const active = isActive(l.href);
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  prefetch
+                  data-active={active ? "true" : undefined}
+                  aria-current={active ? "page" : undefined}
+                  className={`relative z-10 inline-flex h-11 items-center rounded-full px-4 text-sm transition-colors duration-200 ${
+                    active
+                      ? "font-semibold text-white"
+                      : "font-medium text-[var(--nav-text)] hover:bg-[var(--nav-hover)]"
+                  }`}
+                >
+                  {l.name}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Search */}
+          <div className="ml-auto flex min-w-0 flex-1 items-center justify-end md:max-w-[240px] md:pl-4">
+            <SearchModal />
+          </div>
+
+          {/* Right actions */}
+          <div className="flex flex-shrink-0 items-center gap-1.5 sm:gap-2">
+            <a
+              href="#newsletter"
+              className="hs-shine hidden h-10 items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 px-4 text-sm font-semibold text-white shadow-lg shadow-purple-500/25 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl sm:flex"
             >
-              {c.name}
-            </Link>
-          ))}
+              Subscribe
+            </a>
+
+            <button onClick={toggle}
+              className={controlButton}
+              title={theme === "dark" ? "Switch to Light" : "Switch to Dark"}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+              <span className="hidden whitespace-nowrap sm:inline">
+                {theme === "dark" ? "Light mode" : "Dark mode"}
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className={`${controlButton} w-10 px-0 xl:hidden`}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+            >
+              <MenuIcon open={mobileOpen} />
+            </button>
+          </div>
+
         </div>
-
-        {/* Search */}
-        <div className="ml-auto flex min-w-0 flex-1 items-center md:max-w-sm md:pl-6">
-          <SearchModal />
-        </div>
-
-        {/* Right actions */}
-        <div className="flex flex-shrink-0 items-center gap-1.5 sm:gap-2">
-          <a
-            href="#newsletter"
-            className="hidden h-10 items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-500 px-4 text-sm font-semibold text-white transition hover:opacity-90 sm:flex"
-          >
-            Subscribe
-          </a>
-
-          <button onClick={toggle}
-            className={`${controlButton} gap-2 px-3 text-sm font-semibold sm:px-3.5`}
-            title={theme === "dark" ? "Switch to Light" : "Switch to Dark"}
-            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-            <span className="hidden whitespace-nowrap sm:inline">
-              {theme === "dark" ? "Light mode" : "Dark mode"}
-            </span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className={`${iconButton} xl:hidden`}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            <MenuIcon open={mobileOpen} />
-          </button>
-        </div>
-
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div
-          className="border-t border-[var(--border-color)] xl:hidden"
-          style={{ background: "var(--bg-card)" }}
-        >
-          <div className="mx-auto max-w-7xl px-5 py-3 sm:px-8">
-            <div className="flex flex-col gap-0.5">
-              <a
-                href="#newsletter"
-                onClick={() => setMobileOpen(false)}
-                className="mb-1 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 px-3 py-2.5 text-center text-sm font-semibold text-white"
-              >
-                Subscribe
-              </a>
-              <Link href="/" onClick={() => setMobileOpen(false)}
-                className={`rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors ${
-                  isActive("/")
-                    ? "bg-[var(--nav-active-bg)] text-[var(--nav-active-fg)]"
-                    : "text-gray-600 hover:bg-[var(--nav-hover)] hover:text-gray-900"
-                }`}
-              >
-                🏠 Home
-              </Link>
-              {categories.map((c) => (
-                <Link key={c.slug} prefetch href={`/category/${c.slug}`}
+        <div className="px-3 sm:px-5">
+          <div
+            className="hs-drop mx-auto max-w-7xl overflow-hidden rounded-[22px] border border-[var(--border-color)] p-2 shadow-[0_24px_50px_-24px_rgba(17,24,39,0.6)]"
+            style={{ background: "var(--nav-bg-scrolled)" }}
+          >
+            <a
+              href="#newsletter"
+              onClick={() => setMobileOpen(false)}
+              className="hs-shine mb-1 block rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 px-4 py-3 text-center text-sm font-semibold text-white"
+            >
+              Subscribe
+            </a>
+            {links.map((l) => {
+              const active = isActive(l.href);
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  prefetch
                   onClick={() => setMobileOpen(false)}
-                  className={`rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors ${
-                    isActive(`/category/${c.slug}`)
-                      ? "bg-[var(--nav-active-bg)] text-[var(--nav-active-fg)]"
+                  aria-current={active ? "page" : undefined}
+                  className={`hs-drop-item flex items-center rounded-2xl px-4 py-3 text-sm font-medium transition-colors ${
+                    active
+                      ? "bg-[var(--nav-active-bg)] text-[var(--nav-active-fg)] font-semibold"
                       : "text-[var(--nav-text)] hover:bg-[var(--nav-hover)]"
                   }`}
                 >
-                  <CategoryIcon slug={c.slug} className="mr-2 inline-block h-4 w-4 align-[-2px]" /> {c.name}
+                  {l.slug ? (
+                    <CategoryIcon slug={l.slug} className="mr-3 inline-block h-4 w-4 align-[-2px]" />
+                  ) : (
+                    <span className="mr-3 inline-block w-4 text-center" aria-hidden>🏠</span>
+                  )}
+                  {l.name}
                 </Link>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 }
