@@ -707,7 +707,7 @@ export const categories = [
             id: 305,
             title: "Best Cat Toys to Keep Your Cat Happy",
             description: "Keep your cat entertained, active and mentally stimulated with the best toys for every cat personality.",
-            image: "https://images.unsplash.com/photo-1513360371669-4adf46583a55?w=1600&q=80",
+            image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1600&q=80",
             readTime: "4 min read",
             author: "Cat Lovers Club",
             content: [
@@ -721,7 +721,7 @@ export const categories = [
               "Window Perch: This is technically a toy for their mind. A window perch gives cats access to 'cat TV' — watching birds, squirrels, and the outside world. Hours of entertainment.",
             ],
             images: [
-              "https://images.unsplash.com/photo-1513360371669-4adf46583a55?w=1600&q=80",
+              "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1600&q=80",
               "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80",
             ],
           },
