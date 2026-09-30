@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -22,7 +23,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        {/* beforeInteractive so it runs before first paint; a raw <script>
+            in the tree is dropped on client re-renders, which React warns about. */}
+        <Script id="herspace-theme" strategy="beforeInteractive">
+          {THEME_SCRIPT}
+        </Script>
       </head>
       <body className="text-gray-900">
         <ThemeProvider>
