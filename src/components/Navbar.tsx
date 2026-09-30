@@ -233,7 +233,7 @@ export default function Navbar() {
                       : "text-[var(--nav-text)] hover:bg-[var(--nav-hover)]"
                   }`}
                 >
-                  {l.slug ? (
+                  {"slug" in l ? (
                     <CategoryIcon slug={l.slug} className="mr-3 inline-block h-4 w-4 align-[-2px]" />
                   ) : (
                     <span className="mr-3 inline-block w-4 text-center" aria-hidden>🏠</span>
