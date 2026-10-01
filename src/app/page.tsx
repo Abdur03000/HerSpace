@@ -1,9 +1,18 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { categories } from "@/data/categories";
 import CategoryCard from "@/components/CategoryCard";
 import SectionTitle from "@/components/SectionTitle";
 import CategoryIcon from "@/components/CategoryIcon";
+import { categoryPath, collectionJsonLd, siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = {
+  // The layout's default title/description already suit the homepage, but the
+  // canonical has to be declared here because the root page inherits it and
+  // an explicit value is cheaper for crawlers than resolving the template.
+  alternates: { canonical: "/" },
+};
 
 /* ── static data ─────────────────────────────────────── */
 
@@ -39,16 +48,18 @@ const beautyTips = [
   { tip: "Double cleanse to remove all makeup 🫧", color: "from-indigo-400 to-purple-400" },
 ];
 
+/* Alt text describes the photo rather than naming the category, and stays
+   consistent with the link destination for readers who can't see it. */
 const instagramImages = [
-  { src: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80", alt: "Makeup", href: "/category/beauty/makeup" },
-  { src: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80", alt: "Cat", href: "/category/animals/cats" },
-  { src: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&q=80", alt: "Fashion", href: "/category/fashion/outfits" },
-  { src: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1600&q=80", alt: "Skincare", href: "/category/beauty/skincare" },
-  { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80", alt: "Travel", href: "/category/travel/destinations" },
-  { src: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=1600&q=80", alt: "Dog", href: "/category/animals/dogs" },
-  { src: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1600&q=80", alt: "Dessert", href: "/category/food/desserts" },
-  { src: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=80", alt: "Lifestyle", href: "/category/lifestyle/self-care" },
-  { src: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1600&q=80", alt: "Shoes", href: "/category/fashion/shoes" },
+  { src: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80", alt: "Makeup brushes and cosmetics on a vanity", label: "Makeup", href: "/category/beauty/makeup" },
+  { src: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80", alt: "A tabby cat resting", label: "Cats", href: "/category/animals/cats" },
+  { src: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&q=80", alt: "Clothing racks in a fashion shop", label: "Outfits", href: "/category/fashion/outfits" },
+  { src: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1600&q=80", alt: "Skincare bottles and a dropper", label: "Skincare", href: "/category/beauty/skincare" },
+  { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80", alt: "A tropical beach with clear water", label: "Destinations", href: "/category/travel/destinations" },
+  { src: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=1600&q=80", alt: "A dog outdoors", label: "Dogs", href: "/category/animals/dogs" },
+  { src: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1600&q=80", alt: "A plated dessert", label: "Desserts", href: "/category/food/desserts" },
+  { src: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=80", alt: "A calm self-care setting", label: "Self care", href: "/category/lifestyle/self-care" },
+  { src: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1600&q=80", alt: "A pair of red sneakers", label: "Shoes", href: "/category/fashion/shoes" },
 ];
 
 /* ── featured article (Editor's Pick) ─────────────── */
@@ -64,6 +75,23 @@ export default function Home() {
   return (
     <main>
 
+      {/* Links every category from the homepage in one machine-readable list,
+          so crawlers can discover all hubs from a single URL. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: collectionJsonLd({
+            name: `${siteConfig.name} — Beauty, Fashion, Lifestyle & More`,
+            description: siteConfig.description,
+            path: "/",
+            items: categories.map((c) => ({
+              name: c.name,
+              path: categoryPath(c.slug),
+            })),
+          }),
+        }}
+      />
+
       {/* ══ HERO — full background image ═══════════════ */}
       <section className="relative min-h-[90vh] overflow-hidden">
 
@@ -71,7 +99,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=2400&q=85"
-            alt="HerSpace Hero"
+            alt="HerSpace — beauty, fashion, lifestyle, food, animal and travel inspiration"
             fill
             sizes="100vw"
             className="object-cover object-top"
@@ -147,9 +175,24 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 py-6">
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
             {[
-              { value: "6", label: "Categories", emoji: "🎀" },
-              { value: "20+", label: "Sub-Topics", emoji: "🌿" },
-              { value: "60+", label: "Articles", emoji: "📖" },
+              // Counted from the data rather than hardcoded — the old
+              // "60+ Articles" claim was wrong and inflated the page.
+              { value: String(categories.length), label: "Categories", emoji: "🎀" },
+              {
+                value: String(categories.reduce((n, c) => n + c.subcategories.length, 0)),
+                label: "Sub-Topics",
+                emoji: "🌿",
+              },
+              {
+                value: String(
+                  categories.reduce(
+                    (n, c) => n + c.subcategories.reduce((m, s) => m + s.articles.length, 0),
+                    0
+                  )
+                ),
+                label: "Articles",
+                emoji: "📖",
+              },
               { value: "100%", label: "For Women", emoji: "💜" },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center gap-1 text-center">
@@ -296,7 +339,7 @@ export default function Home() {
               className="group overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="relative h-36 overflow-hidden">
-                <Image src={sub.image} alt={sub.name} fill className="object-cover transition duration-500 group-hover:scale-110" />
+                <Image src={sub.image} alt={`${sub.name} tips and guides`} fill sizes="(max-width: 640px) 100vw, 20vw" className="object-cover transition duration-500 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </div>
               <div className="p-4">
@@ -335,7 +378,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/20" />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 transition group-hover:opacity-100">
                     <span className="rounded-full bg-white/90 px-4 py-2 text-xs font-bold text-purple-600 shadow-lg">
-                      Explore {img.alt} →
+                      Explore {img.label} →
                     </span>
                   </div>
                 </div>
@@ -359,7 +402,7 @@ export default function Home() {
               className="group overflow-hidden rounded-3xl bg-white shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
               <div className="relative h-52 overflow-hidden">
-                <Image src={sub.image} alt={sub.name} fill className="object-cover transition duration-500 group-hover:scale-105" />
+                <Image src={sub.image} alt={`${sub.name} articles`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
               </div>
               <div className="p-5">
                 <h3 className="text-xl font-bold text-gray-900 transition group-hover:text-purple-600">{sub.name}</h3>
@@ -389,7 +432,7 @@ export default function Home() {
                 </p>
                 <div className="mt-6 flex items-center gap-3">
                   <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-white/30">
-                    <Image src={t.avatar} alt={t.name} fill className="object-cover" />
+                    <Image src={t.avatar} alt={t.name} fill sizes="40px" className="object-cover" />
                   </div>
                   <div>
                     <p className="text-sm font-bold text-white">{t.name}</p>

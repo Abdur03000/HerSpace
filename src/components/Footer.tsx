@@ -3,10 +3,14 @@ import { categories } from "@/data/categories";
 import NewsletterForm from "@/components/NewsletterForm";
 import CategoryIcon from "@/components/CategoryIcon";
 
+/* Placeholder social profiles. Set NEXT_PUBLIC_INSTAGRAM_URL,
+   NEXT_PUBLIC_PINTEREST_URL and NEXT_PUBLIC_YOUTUBE_URL in the deploy env to
+   switch these from inert chips to real outbound links — entries without a URL
+   render as plain icons so the page has no dead anchors. */
 const socialLinks = [
   {
     name: "Instagram",
-    href: "#",
+    href: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
     path: (
       <>
         <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -17,7 +21,7 @@ const socialLinks = [
   },
   {
     name: "Pinterest",
-    href: "#",
+    href: process.env.NEXT_PUBLIC_PINTEREST_URL,
     path: (
       <path
         d="M12 2a10 10 0 0 0-3.65 19.31c-.03-.78-.01-1.72.14-2.5l1.2-5.1s-.3-.6-.3-1.5c0-1.4.82-2.45 1.84-2.45.87 0 1.29.65 1.29 1.43 0 .87-.55 2.18-.84 3.39-.24 1.02.51 1.85 1.51 1.85 1.82 0 3.22-1.92 3.22-4.7 0-2.46-1.76-4.18-4.29-4.18-2.92 0-4.64 2.19-4.64 4.45 0 .88.34 1.83.76 2.35a.3.3 0 0 1 .07.29c-.08.32-.25 1-.29 1.15-.05.19-.15.23-.35.14-1.28-.6-2.08-2.47-2.08-3.98 0-3.24 2.35-6.21 6.79-6.21 3.56 0 6.33 2.54 6.33 5.93 0 3.54-2.23 6.39-5.32 6.39-1.04 0-2.02-.54-2.35-1.18l-.64 2.44c-.23.89-.86 2.01-1.28 2.69A10 10 0 1 0 12 2Z"
@@ -28,7 +32,7 @@ const socialLinks = [
   },
   {
     name: "YouTube",
-    href: "#",
+    href: process.env.NEXT_PUBLIC_YOUTUBE_URL,
     path: (
       <>
         <rect x="2.5" y="5.5" width="19" height="13" rx="4" />
@@ -61,19 +65,40 @@ export default function Footer() {
 
             {/* Social Links */}
             <div className="mt-6 flex gap-2">
-              {socialLinks.map((s) => (
-                <a
-                  key={s.name}
-                  href={s.href}
-                  aria-label={s.name}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--nav-chip)] text-gray-600 transition-colors hover:bg-[var(--nav-hover)] hover:text-gray-900"
-                >
+              {socialLinks.map((s) => {
+                const icon = (
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                     {s.path}
                   </svg>
-                </a>
-              ))}
+                );
+                const base =
+                  "flex h-10 w-10 items-center justify-center rounded-full bg-[var(--nav-chip)] text-gray-600 transition-colors hover:bg-[var(--nav-hover)] hover:text-gray-900";
+
+                // No configured profile means no anchor. href="#" is a dead
+                // link that crawlers count as an internal reference.
+                return s.href ? (
+                  <a
+                    key={s.name}
+                    href={s.href}
+                    aria-label={`HerSpace on ${s.name}`}
+                    rel="me noopener noreferrer"
+                    target="_blank"
+                    className={base}
+                  >
+                    {icon}
+                  </a>
+                ) : (
+                  <span
+                    key={s.name}
+                    aria-hidden
+                    title={`${s.name} coming soon`}
+                    className={`${base} cursor-default opacity-60`}
+                  >
+                    {icon}
+                  </span>
+                );
+              })}
             </div>
           </div>
 
@@ -158,11 +183,10 @@ export default function Footer() {
             © {new Date().getFullYear()} <span className="font-semibold text-gray-900">HerSpace</span>. All rights reserved.
           </p>
 
-          <div className="flex gap-6">
-            <a href="#" className="inline-block py-2 text-sm text-gray-500 transition-colors hover:text-gray-900">Privacy Policy</a>
-            <a href="#" className="inline-block py-2 text-sm text-gray-500 transition-colors hover:text-gray-900">Terms of Use</a>
-            <a href="#" className="inline-block py-2 text-sm text-gray-500 transition-colors hover:text-gray-900">Contact</a>
-          </div>
+          {/* The previous Privacy / Terms / Contact row pointed all three
+              anchors at "#". Real pages need real copy, so rather than ship
+              placeholders that read as dead links they are left out until the
+              content exists. */}
 
         </div>
       </div>

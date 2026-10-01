@@ -19,6 +19,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1600&q=80",
             readTime: "4 min read",
             author: "Sarah Ali",
+            publishedAt: "2026-09-28",
             content: [
               "A good morning skincare routine is the foundation of healthy, glowing skin. It doesn't have to be complicated — just a few key steps done consistently can transform your skin completely.",
               "Step 1 — Cleanser: Start with a gentle foaming cleanser to remove overnight oils and impurities. Look for ingredients like niacinamide or salicylic acid if you have oily skin, or hyaluronic acid if your skin is dry.",
@@ -41,6 +42,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1600&q=80",
             readTime: "5 min read",
             author: "Zara Khan",
+            publishedAt: "2026-09-17",
             content: [
               "Serums are the most powerful step in any skincare routine. They contain high concentrations of active ingredients that target specific skin concerns — from dullness to wrinkles to acne.",
               "For Dry Skin — Hyaluronic Acid Serum: Hyaluronic acid can hold up to 1000 times its weight in water. It deeply hydrates your skin, plumps fine lines, and gives you that dewy, glass-skin look. Apply on damp skin for best results.",
@@ -62,6 +64,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=80",
             readTime: "4 min read",
             author: "Amna Raza",
+            publishedAt: "2026-09-06",
             content: [
               "Night is when your skin does its most important work — repairing damage, regenerating cells, and restoring hydration. A proper nighttime routine supports this natural process and amplifies your results.",
               "Step 1 — Double Cleanse: First use a micellar water or cleansing oil to remove makeup and SPF. Then follow with a gentle water-based cleanser to clean the skin itself. This ensures nothing is left behind.",
@@ -83,6 +86,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1617897903246-719242758050?w=1600&q=80",
             readTime: "5 min read",
             author: "Dr. Zara Skin",
+            publishedAt: "2026-08-26",
             content: [
               "Dark spots — also called hyperpigmentation — are one of the most common skin concerns. They appear from sun damage, post-acne marks, hormonal changes, or skin injuries. The good news: they're very treatable.",
               "Step 1 — Vitamin C Serum: This is the most effective ingredient for brightening dark spots. Vitamin C inhibits melanin production and fades discolouration over time. Use daily in the morning under SPF.",
@@ -105,6 +109,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1600&q=80",
             readTime: "6 min read",
             author: "K-Beauty Expert",
+            publishedAt: "2026-08-15",
             content: [
               "Glass skin is the Korean beauty ideal — skin so hydrated, smooth, and clear that it looks like polished glass. It's not about heavy makeup; it's about an intensive skincare ritual that transforms your complexion from within.",
               "The Foundation — Double Cleanse: Remove all impurities by first cleansing with an oil-based cleanser (to remove makeup and SPF), followed by a water-based foam or gel cleanser. This ensures a perfectly clean canvas.",
@@ -138,6 +143,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1600&q=80",
             readTime: "5 min read",
             author: "Hina Malik",
+            publishedAt: "2026-08-04",
             content: [
               "The natural makeup look is all about enhancing what you already have — not covering it up. It's fresh, effortless, and can be done in under 10 minutes once you have the right products.",
               "Step 1 — Prep Your Skin: Start with a moisturized, primed face. Apply a lightweight primer to blur pores and help your makeup last longer. Let it sit for 60 seconds before the next step.",
@@ -162,6 +168,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=1600&q=80",
             readTime: "4 min read",
             author: "Sana Butt",
+            publishedAt: "2026-07-24",
             content: [
               "A bold lip is the quickest way to elevate any look — from casual to glamorous in seconds. The key is knowing how to choose the right shade and apply it flawlessly.",
               "Choosing Your Shade: For warm skin tones, go for brick reds, terracottas, and warm berries. For cool skin tones, true reds, plums, and blue-based pinks look stunning. For neutral tones, almost any shade works — lucky you!",
@@ -184,6 +191,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1600&q=80",
             readTime: "6 min read",
             author: "Ayesha Noor",
+            publishedAt: "2026-07-13",
             content: [
               "The smoky eye is the most classic and dramatic eye look in makeup. It looks intimidating but once you learn the technique, it becomes second nature. Here's how to nail it as a beginner.",
               "Products You Need: Eyeshadow palette with dark shades (black, charcoal, brown), a fluffy blending brush, a flat shader brush, black or dark brown eyeliner, and mascara.",
@@ -209,6 +217,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600&q=80",
             readTime: "5 min read",
             author: "Mariam Shah",
+            publishedAt: "2026-07-02",
             content: [
               "Dewy, glassy skin is the most coveted makeup look right now. It's luminous, fresh, and looks like healthy skin from within. Here's how to achieve it perfectly.",
               "Skincare First: The secret to dewy makeup starts before you even open your makeup bag. Use a hydrating moisturizer and let it fully absorb. Add a few drops of facial oil if your skin needs extra hydration.",
@@ -232,6 +241,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80",
             readTime: "4 min read",
             author: "Fatima Iqbal",
+            publishedAt: "2026-06-21",
             content: [
               "Summer is the perfect season for a glossy, fresh makeup look. Light coverage, glowing skin, glossy lips — this look is all about looking radiant and effortless.",
               "The glossy look works best when your skin is in great condition. So double down on hydration — drink water, use a hydrating serum, and moisturize well before applying makeup.",
@@ -254,6 +264,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1599507593499-a3f7d7d97667?w=1600&q=80",
             readTime: "6 min read",
             author: "Ayesha Noor",
+            publishedAt: "2026-06-10",
             content: [
               "Contouring is the makeup technique that can completely transform the shape of your face — slimming your nose, defining your cheekbones, and sculpting your jawline. Here's how to do it properly.",
               "Understanding Your Face Shape: Oval faces suit almost any contouring style. Round faces benefit from contouring the sides of the face and forehead. Square faces look great with soft contouring on the jawline corners.",
@@ -277,6 +288,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=1600&q=80",
             readTime: "4 min read",
             author: "Hina Malik",
+            publishedAt: "2026-05-30",
             content: [
               "The no-makeup makeup look is one of the most flattering and wearable styles for everyday life. The goal is to enhance your features so subtly that people simply think you look amazing — not that you're wearing makeup.",
               "Start with Perfect Skin: This look only works on well-moisturized skin. Apply your moisturizer, let it sink in, and use a hydrating primer if needed. The skin needs to look naturally healthy.",
@@ -300,6 +312,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1600&q=80",
             readTime: "7 min read",
             author: "Mariam Shah",
+            publishedAt: "2026-05-19",
             content: [
               "One eye makeup look does not suit everyone. Your eye shape determines which techniques will make your eyes pop — and which might actually make them look smaller or tired.",
               "Almond Eyes — The Most Versatile: Lucky almond-eyed beauties can wear virtually any eye look. Classic winged liner suits perfectly — extend the wing slightly upward following your natural eye shape.",
@@ -331,6 +344,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1600&q=80",
             readTime: "4 min read",
             author: "Nadia Hussain",
+            publishedAt: "2026-05-08",
             content: [
               "A weekly hair mask is the single best thing you can do for damaged, dry, or frizzy hair. It's like a face mask but for your hair — it deeply conditions, repairs, and transforms your strands.",
               "DIY Egg and Olive Oil Mask: Beat 2 eggs and mix with 3 tablespoons of olive oil. Apply from roots to tips, cover with a shower cap, and leave for 30 minutes. Egg protein strengthens hair while olive oil deeply moisturizes.",
@@ -351,6 +365,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=1600&q=80",
             readTime: "5 min read",
             author: "Sara Javed",
+            publishedAt: "2026-04-27",
             content: [
               "Hair oils are the oldest beauty secret in the world. Used for centuries across cultures, the right hair oil can transform dull, damaged hair into shiny, healthy locks.",
               "Argan Oil — For Frizzy or Color-Treated Hair: Called 'liquid gold', argan oil is rich in Vitamin E and fatty acids. It tames frizz, adds incredible shine, and protects color-treated hair from damage. Apply a few drops to damp hair before styling.",
@@ -380,6 +395,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&q=80",
             readTime: "4 min read",
             author: "Sana Ali",
+            publishedAt: "2026-04-16",
             content: [
               "Strong, healthy nails are achievable without expensive salon treatments. A simple weekly routine at home is all you need.",
               "Step 1 — Remove Old Polish Properly: Use an acetone-free nail polish remover to avoid drying out your nails. Saturate a cotton pad, press on the nail for 10 seconds, then wipe off — don't scrub.",
@@ -409,6 +425,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1600&q=80",
             readTime: "6 min read",
             author: "Hira Baig",
+            publishedAt: "2026-04-05",
             content: [
               "These 10 beauty tips are the kind of secrets that take years to learn — but we're sharing them all right here so you can level up your beauty routine starting today.",
               "Tip 1 — Ice Your Face in the Morning: Wrap an ice cube in a thin cloth and gently press it against your face for 1–2 minutes. It instantly depuffs, tightens pores, and gives you a fresh, awake look. Do this before applying any skincare.",
@@ -452,6 +469,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&q=80",
             readTime: "4 min read",
             author: "Zainab Mir",
+            publishedAt: "2026-03-25",
             content: [
               "Looking stylish every day doesn't require a huge wardrobe or expensive clothes. It's about knowing a few key combinations that always work.",
               "Outfit 1 — White Tee + Straight Jeans + White Sneakers: The classic French girl look. Roll the cuffs on your jeans slightly, tuck in the front of the tee loosely, and add gold hoop earrings. Simple but always chic.",
@@ -480,6 +498,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1600&q=80",
             readTime: "3 min read",
             author: "Maryam Tariq",
+            publishedAt: "2026-03-14",
             content: [
               "Spring and floral dresses are a match made in fashion heaven. Whether you prefer delicate ditsy florals or bold statement prints, there is a floral dress for every style.",
               "Choose the Right Silhouette: A-line dresses are universally flattering. Wrap dresses define the waist beautifully. Midi lengths are elegant and on-trend. Smock dresses are comfortable and effortlessly cute.",
@@ -506,6 +525,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1600&q=80",
             readTime: "4 min read",
             author: "Noor Fatima",
+            publishedAt: "2026-03-03",
             content: [
               "The right shoes can make or break an outfit. Building a versatile shoe wardrobe means having a few key styles that cover every season and occasion.",
               "Spring/Summer — Strappy Sandals: A pair of tan or nude strappy sandals goes with literally everything. They elongate the leg and add femininity to any outfit from sundresses to jeans.",
@@ -533,6 +553,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1600&q=80",
             readTime: "4 min read",
             author: "Aisha Riaz",
+            publishedAt: "2026-02-20",
             content: [
               "A well-chosen bag collection doesn't need to be large — it needs to be strategic. These five bag styles cover every occasion in your life.",
               "The Classic Tote: Your everyday workhorse. A structured or semi-structured tote in tan, black, or navy holds everything you need while looking effortlessly polished. Perfect for work and daily errands.",
@@ -560,6 +581,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1600&q=80",
             readTime: "3 min read",
             author: "Layla Hassan",
+            publishedAt: "2026-02-09",
             content: [
               "Layered necklaces are one of the easiest ways to elevate any outfit. The key is knowing how to combine different lengths and styles for a harmonious look.",
               "The 3-Layer Formula: Start with a choker (14–16 inches), add a mid-length chain at 18–20 inches, and finish with a longer pendant at 24–28 inches. This creates perfect visual spacing.",
@@ -587,6 +609,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?w=1600&q=80",
             readTime: "3 min read",
             author: "Dina Malik",
+            publishedAt: "2026-01-29",
             content: [
               "The right accessories can transform a simple summer outfit into a stunning look. Here are the must-have accessories for the warm season.",
               "Wide-Brim Sun Hat: A statement hat instantly elevates any beach or outdoor outfit. Straw hats are classic and go with everything. Wear with a simple sundress for instant chic.",
@@ -624,6 +647,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1600&q=80",
             readTime: "5 min read",
             author: "Cat Lovers Club",
+            publishedAt: "2026-01-18",
             content: [
               "Cats have been captivating humans for thousands of years. With over 70 recognized breeds, each with its own personality and appearance, there's a perfect cat for every person.",
               "Persian — The Ultimate Fluffy Cat: Persians are known for their luxurious, long coats and sweet, gentle personalities. They have a flat face with large, expressive eyes and love being pampered. They're calm, quiet, and perfectly happy as indoor cats.",
@@ -646,6 +670,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1600&q=80",
             readTime: "6 min read",
             author: "Dr. Amina Vet",
+            publishedAt: "2026-01-07",
             content: [
               "Cats are independent but they still need proper care and attention to thrive. Here's everything you need to know to be the best cat parent.",
               "Feeding Your Cat: Always provide fresh water. Feed adult cats 2 times a day with high-quality wet or dry food. Avoid foods with too many fillers like corn syrup — look for real meat as the first ingredient. Kittens need feeding 3–4 times a day.",
@@ -667,6 +692,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=1600&q=80",
             readTime: "4 min read",
             author: "Cat Lovers Club",
+            publishedAt: "2025-12-27",
             content: [
               "Cats are mysterious, fascinating creatures. The more you learn about them, the more you realize how extraordinary they really are.",
               "Cats Sleep 12–16 Hours a Day: Cats are crepuscular — most active at dawn and dusk. During the day, they conserve energy through sleep. This is evolutionary — their ancestors needed bursts of energy for hunting.",
@@ -689,6 +715,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=1600&q=80",
             readTime: "3 min read",
             author: "HerSpace Team",
+            publishedAt: "2025-12-16",
             content: [
               "Sometimes all you need to feel better is a few minutes looking at adorable cats. Here are some of the sweetest cat moments that remind us why we love them so much.",
               "The Slow Blink: When a cat looks at you and slowly closes their eyes, they're saying 'I love you' and 'I trust you completely'. Try slow blinking back at your cat — they often respond by doing it again.",
@@ -710,6 +737,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1600&q=80",
             readTime: "4 min read",
             author: "Cat Lovers Club",
+            publishedAt: "2025-12-05",
             content: [
               "Cats need play and mental stimulation to stay healthy and happy. Without it, they can become bored, anxious, or destructive. The right toys make all the difference.",
               "Interactive Wand Toys: Feather wands and fishing rod toys are the absolute best for interactive play. They mimic prey movement and trigger your cat's hunting instincts. Spend at least 10–15 minutes playing this way every day.",
@@ -732,6 +760,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?w=1600&q=80",
             readTime: "6 min read",
             author: "Dr. Amina Vet",
+            publishedAt: "2025-11-24",
             content: [
               "The first week with a new kitten is filled with wonder — and a few challenges. With the right preparation, you can make this transition smooth and joyful for both of you.",
               "Before They Arrive — Prep Your Home: Set up a small, quiet room as their safe space. Include a litter box, food and water bowls, a cozy bed, and a few toys. Kittens can feel overwhelmed in large spaces initially.",
@@ -764,6 +793,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=1600&q=80",
             readTime: "5 min read",
             author: "Puppy Love Team",
+            publishedAt: "2025-11-13",
             content: [
               "Dogs are the most loyal companions in the world. The right breed can become the heart of your family. Here are the best dog breeds for families with children.",
               "Golden Retriever — The Perfect Family Dog: Golden Retrievers are gentle, patient, and endlessly loyal. They're great with children of all ages, easy to train, and always happy. Their golden coat and warm eyes make them irresistible.",
@@ -785,6 +815,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1600&q=80",
             readTime: "7 min read",
             author: "Dr. Amina Vet",
+            publishedAt: "2025-11-02",
             content: [
               "Bringing a dog home for the first time is one of the most exciting experiences. But it also comes with big responsibilities. Here's your complete beginner's guide.",
               "Feeding: Feed adult dogs 2 times a day with high-quality dog food appropriate for their size and age. Always provide fresh, clean water. Avoid feeding chocolate, onions, grapes, raisins, and xylitol — these are toxic to dogs.",
@@ -807,6 +838,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=1600&q=80",
             readTime: "3 min read",
             author: "HerSpace Team",
+            publishedAt: "2025-10-22",
             content: [
               "Dogs have an extraordinary ability to find joy in the smallest things. Their happiness is pure, unfiltered, and completely contagious. Here are some of the most heartwarming dog behaviors.",
               "The Zoomies: When a dog gets the 'zoomies' (Frenetic Random Activity Periods), they run in circles, leap over furniture, and sprint at full speed for no apparent reason. It's pure, uncontained joy.",
@@ -827,6 +859,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1600&q=80",
             readTime: "6 min read",
             author: "Puppy Love Team",
+            publishedAt: "2025-10-11",
             content: [
               "Training your dog is one of the most loving things you can do for them. A well-trained dog is safer, happier, and gets to enjoy more freedom. Here are the 6 essential commands every dog must know.",
               "The Golden Rules of Dog Training: Always use positive reinforcement — reward what you want to see more of. Keep sessions short (5–10 minutes) and fun. End on a success. Be consistent — every family member must use the same commands.",
@@ -849,6 +882,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1568572933382-74d440642117?w=1600&q=80",
             readTime: "4 min read",
             author: "HerSpace Team",
+            publishedAt: "2025-09-30",
             content: [
               "Dogs are the world's most adorable photo subjects — but photographing them can be challenging. Here's how to capture perfect, frame-worthy shots every time.",
               "Get Down to Their Level: The most important tip. Crouch, sit, or even lie on the floor to photograph your dog from their eye level. This creates intimate, engaging portraits rather than awkward top-down shots.",
@@ -880,6 +914,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1600&q=80",
             readTime: "5 min read",
             author: "Nature Lovers",
+            publishedAt: "2025-09-19",
             content: [
               "The bird world is home to some of the most spectacular colors in nature. From electric blues to blazing oranges — these birds look like living jewels.",
               "Peacock — The King of Feathers: The male peacock's train (not technically his tail) contains up to 200 iridescent feathers that shimmer between green, blue, and gold. When he fans them out in a display, it's one of nature's most breathtaking sights.",
@@ -901,6 +936,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=1600&q=80",
             readTime: "5 min read",
             author: "Dr. Amina Vet",
+            publishedAt: "2025-09-08",
             content: [
               "Pet birds are intelligent, social, and full of personality. With the right care, they can be wonderful companions for many years.",
               "Choosing the Right Bird: Budgies and cockatiels are the best choice for beginners — they're friendly, easy to care for, and relatively quiet. Larger parrots like African Greys and Macaws require much more time and expertise.",
@@ -922,6 +958,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1600&q=80",
             readTime: "5 min read",
             author: "Nature Lovers",
+            publishedAt: "2025-08-28",
             content: [
               "Parrots are among the most intelligent animals on the planet. They can do things that were once thought exclusive to humans and great apes.",
               "Parrots Can Truly Speak: Unlike most birds that mimic sounds, many parrots — especially African Greys — actually understand the meaning of words. Alex, a famous African Grey, learned over 100 words and could use them in correct context.",
@@ -961,6 +998,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80",
             readTime: "5 min read",
             author: "Wellness Team",
+            publishedAt: "2025-08-17",
             content: [
               "The way you spend the first hour of your morning sets the tone for your entire day. A mindful morning routine is the single highest-leverage habit you can build.",
               "Wake Up Without Screens: Resist the urge to check your phone first thing. Give yourself at least 30 minutes of screen-free time in the morning. This protects your mental clarity and prevents anxiety from starting the day.",
@@ -989,6 +1027,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=80",
             readTime: "4 min read",
             author: "Wellness Team",
+            publishedAt: "2025-08-06",
             content: [
               "Sunday is the perfect day to reset, recharge, and prepare for the week ahead. A dedicated self-care Sunday is not a luxury — it's a necessity for your mental and physical well-being.",
               "Morning: Sleep in if your body needs it. Start with a slow, peaceful morning — no alarms, no rushing. Make your favorite breakfast or go to a café you love.",
@@ -1017,6 +1056,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600&q=80",
             readTime: "5 min read",
             author: "Productivity Team",
+            publishedAt: "2025-07-26",
             content: [
               "Working from home offers incredible flexibility but comes with unique challenges — distractions, isolation, and the blurring of work-life boundaries. These strategies will help you thrive.",
               "Create a Dedicated Workspace: Having a specific place for work (even a corner of a room) helps your brain shift into work mode. Keep it clean, organized, and separated from relaxation spaces.",
@@ -1055,6 +1095,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1600&q=80",
             readTime: "4 min read",
             author: "Chef Nadia",
+            publishedAt: "2025-07-15",
             content: [
               "Chocolate lava cake is the ultimate dessert — a warm, fudgy chocolate cake with a molten, flowing center. It looks fancy but takes just 30 minutes and minimal ingredients.",
               "Ingredients (serves 4): 4 oz dark chocolate (70%+), 4 tbsp butter, 2 eggs, 2 egg yolks, 1/4 cup sugar, 2 tbsp flour, pinch of salt, cocoa powder for dusting.",
@@ -1084,6 +1125,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=1600&q=80",
             readTime: "3 min read",
             author: "Chef Nadia",
+            publishedAt: "2025-07-04",
             content: [
               "These fluffy pancakes are the weekend breakfast of dreams. Light, golden, and perfectly soft inside — they're ready in 15 minutes and taste like they came from a restaurant.",
               "Ingredients (serves 4): 1 cup all-purpose flour, 2 tbsp sugar, 2 tsp baking powder, 1/4 tsp salt, 1 cup milk, 1 egg, 2 tbsp melted butter, 1 tsp vanilla extract.",
@@ -1113,6 +1155,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=1600&q=80",
             readTime: "3 min read",
             author: "Coffee Corner",
+            publishedAt: "2025-06-23",
             content: [
               "Dalgona coffee took the internet by storm during 2020 and it's easy to see why — it's beautiful, delicious, and incredibly easy to make with ingredients you already have.",
               "Ingredients: 2 tbsp instant coffee, 2 tbsp sugar, 2 tbsp hot water, milk (dairy or plant-based), ice cubes.",
@@ -1151,6 +1194,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80",
             readTime: "6 min read",
             author: "Travel Team",
+            publishedAt: "2025-06-12",
             content: [
               "The world is full of breathtaking places that feel almost too beautiful to be real. Here are 10 destinations that absolutely must be on your travel bucket list.",
               "1. Santorini, Greece: With its iconic white-washed buildings, blue-domed churches, and sunsets that paint the sky in shades of orange and pink, Santorini is one of the most photogenic places on earth.",
@@ -1184,6 +1228,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80",
             readTime: "5 min read",
             author: "Travel Team",
+            publishedAt: "2025-06-01",
             content: [
               "There's something magical about the ocean — the sound of waves, the warmth of sand, the infinite horizon. These are the world's most beautiful beaches for 2024.",
               "Whitehaven Beach, Australia: Located in the Whitsundays, this 7-kilometer stretch of pure white silica sand is consistently rated one of the world's best beaches. The sand is so pure it's cool to the touch even in summer.",
@@ -1211,6 +1256,7 @@ export const categories = [
             image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1600&q=80",
             readTime: "5 min read",
             author: "Travel Team",
+            publishedAt: "2025-05-21",
             content: [
               "Paris is the city of dreams — of art, fashion, romance, and extraordinary food. Every street feels like a film set. Here's how to experience the best of Paris.",
               "Must-See: The Eiffel Tower is obligatory but visit at night when it sparkles with lights every hour. The Louvre is magnificent but overwhelming — focus on a few sections rather than trying to see everything.",

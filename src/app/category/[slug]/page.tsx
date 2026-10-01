@@ -1,42 +1,108 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { categories } from "@/data/categories";
 import CategoryIcon from "@/components/CategoryIcon";
+import {
+  breadcrumbListJsonLd,
+  categoryPath,
+  clampDescription,
+  collectionJsonLd,
+  subcategoryPath,
+} from "@/lib/site";
 
 type CategoryPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export default async function CategoryPage({ params }: CategoryPageProps) {
+export function generateStaticParams() {
+  return categories.map((category) => ({ slug: category.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: CategoryPageProps): Promise<Metadata> {
   const { slug } = await params;
   const category = categories.find((item) => item.slug === slug);
 
   if (!category) {
-    return (
-      <main className="flex min-h-screen items-center justify-center">
-        <div className="text-center">
-          <div className="text-6xl">😕</div>
-          <h1 className="mt-5 text-4xl font-bold">Category Not Found</h1>
-          <Link
-            href="/"
-            className="mt-6 inline-block rounded-full bg-gradient-to-r from-purple-600 to-pink-500 px-6 py-3 text-white"
-          >
-            ← Back Home
-          </Link>
-        </div>
-      </main>
-    );
+    return { title: "Category Not Found", robots: { index: false, follow: false } };
   }
+
+  const topicNames = category.subcategories.map((s) => s.name);
+  const description = clampDescription(
+    `${category.description} Browse ${topicNames.length} topics — ${topicNames
+      .slice(0, 5)
+      .join(", ")} — with practical guides and ideas.`
+  );
+
+  return {
+    title: `${category.name} — Tips, Guides & Ideas`,
+    description,
+    keywords: [
+      category.name.toLowerCase(),
+      ...topicNames.map((name) => name.toLowerCase()),
+      `${category.name.toLowerCase()} tips`,
+      `${category.name.toLowerCase()} guide`,
+    ],
+    alternates: { canonical: categoryPath(slug) },
+    openGraph: {
+      type: "website",
+      title: `${category.name} — Tips, Guides & Ideas | HerSpace`,
+      description,
+      url: categoryPath(slug),
+      images: [{ url: category.image, width: 1600, height: 900, alt: category.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${category.name} — Tips, Guides & Ideas | HerSpace`,
+      description,
+      images: [category.image],
+    },
+    robots: { index: true, follow: true },
+  };
+}
+
+export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { slug } = await params;
+  const category = categories.find((item) => item.slug === slug);
+
+  // Previously this rendered a friendly "Category Not Found" page with a
+  // 200 status, which told Google the URL was valid content. A real 404 stops
+  // invalid URLs from being indexed.
+  if (!category) notFound();
+
+  const trail = [{ name: category.name, path: categoryPath(category.slug) }];
 
   return (
     <main>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: collectionJsonLd({
+            name: `${category.name} — Tips, Guides & Ideas`,
+            description: category.description,
+            path: categoryPath(slug),
+            items: category.subcategories.map((s) => ({
+              name: s.name,
+              path: subcategoryPath(category.slug, s.slug),
+            })),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: breadcrumbListJsonLd(trail) }}
+      />
 
       {/* Hero Banner */}
       <section className="relative overflow-hidden">
         <div className="relative h-80 md:h-96">
           <Image
             src={category.image}
-            alt={category.name}
+            alt={`${category.name} — ${category.description}`}
             fill
             sizes="100vw"
             className="object-cover"
@@ -102,8 +168,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               <div className="relative h-52 overflow-hidden">
                 <Image
                   src={subcategory.image}
-                  alt={subcategory.name}
+                  alt={`${subcategory.name} articles and guides`}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition group-hover:opacity-100" />

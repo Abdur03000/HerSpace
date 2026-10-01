@@ -3,23 +3,116 @@ import Image from "next/image";
 import Link from "next/link";
 import { categories } from "@/data/categories";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import CategoryIcon from "@/components/CategoryIcon";
+import {
+  absoluteUrl,
+  articleExcerpt,
+  articleJsonLd,
+  articlePath,
+  breadcrumbListJsonLd,
+  categoryPath,
+  clampDescription,
+  subcategoryPath,
+} from "@/lib/site";
 
 type ArticlePageProps = {
   params: Promise<{ slug: string; subcategory: string; articleId: string }>;
 };
 
+/* Every article is known at build time, so all of them are pre-rendered to
+   static HTML rather than being rendered per request. */
+export function generateStaticParams() {
+  return categories.flatMap((category) =>
+    category.subcategories.flatMap((sub) =>
+      sub.articles.map((article) => ({
+        slug: category.slug,
+        subcategory: sub.slug,
+        articleId: String(article.id),
+      }))
+    )
+  );
+}
+
+type Resolved = NonNullable<ReturnType<typeof resolveArticle>>;
+
+function resolveArticle(slug: string, subcategory: string, articleId: string) {
+  const category = categories.find((c) => c.slug === slug);
+  if (!category) return null;
+
+  const sub = category.subcategories.find((s) => s.slug === subcategory);
+  if (!sub) return null;
+
+  const article = sub.articles.find((a) => a.id === Number(articleId));
+  if (!article) return null;
+
+  return { category, sub, article };
+}
+
+export async function generateMetadata({
+  params,
+}: ArticlePageProps): Promise<Metadata> {
+  const { slug, subcategory, articleId } = await params;
+  const resolved = resolveArticle(slug, subcategory, articleId);
+
+  if (!resolved) {
+    return { title: "Article Not Found", robots: { index: false, follow: false } };
+  }
+
+  const { category, sub, article } = resolved;
+  const path = articlePath(slug, subcategory, article.id);
+  const description = clampDescription(
+    article.description || articleExcerpt(article.content)
+  );
+
+  return {
+    title: article.title,
+    description,
+    keywords: [article.title, sub.name, category.name, "how to", "guide", "tips"],
+    authors: [{ name: article.author }],
+    alternates: { canonical: path },
+    openGraph: {
+      type: "article",
+      title: article.title,
+      description,
+      url: absoluteUrl(path),
+      siteName: "HerSpace",
+      locale: "en_US",
+      publishedTime: article.publishedAt,
+      modifiedTime: article.publishedAt,
+      authors: [article.author],
+      section: category.name,
+      tags: [sub.name, category.name],
+      images: [
+        {
+          url: article.image,
+          width: 1600,
+          height: 900,
+          alt: article.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description,
+      images: [article.image],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, "max-image-preview": "large" },
+    },
+  };
+}
+
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug, subcategory, articleId } = await params;
 
-  const category = categories.find((c) => c.slug === slug);
-  if (!category) notFound();
+  const resolved = resolveArticle(slug, subcategory, articleId);
+  if (!resolved) notFound();
 
-  const sub = category.subcategories.find((s) => s.slug === subcategory);
-  if (!sub) notFound();
-
-  const article = sub.articles.find((a) => a.id === Number(articleId));
-  if (!article) notFound();
+  const { category, sub, article } = resolved as Resolved;
 
   const otherArticles = sub.articles.filter((a) => a.id !== article.id).slice(0, 4);
 
@@ -27,8 +120,40 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const pullQuoteIndex = Math.floor(article.content.length / 2);
   const pullQuote = article.content[pullQuoteIndex];
 
+  const trail = [
+    { name: category.name, path: categoryPath(category.slug) },
+    { name: sub.name, path: subcategoryPath(category.slug, sub.slug) },
+    { name: article.title, path: articlePath(slug, subcategory, article.id) },
+  ];
+
+  const published = new Date(article.publishedAt);
+  const publishedLabel = published.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+
   return (
     <main className="min-h-screen">
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: articleJsonLd({
+          title: article.title,
+          description: article.description || articleExcerpt(article.content),
+          image: article.image,
+          path: articlePath(slug, subcategory, article.id),
+          author: article.author,
+          publishedAt: article.publishedAt,
+          readTime: article.readTime,
+          keywords: [sub.name, category.name],
+        }) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: breadcrumbListJsonLd(trail) }}
+      />
 
       {/* ── HERO ───────────────────────────────────────────── */}
       <section className="relative">
@@ -73,6 +198,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <span className="flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
                 ✍️ {article.author}
               </span>
+              {/* Visible publish date — freshness signal for both readers and
+                  crawlers, and it has to be on the page to match the schema. */}
+              <time
+                dateTime={article.publishedAt}
+                className="flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm"
+              >
+                🗓️ {publishedLabel}
+              </time>
             </div>
 
             <h1 className="max-w-3xl text-3xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">

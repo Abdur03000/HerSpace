@@ -1,60 +1,136 @@
 import Link from "next/link";
 import Image from "next/image";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { categories } from "@/data/categories";
 import ArticleCard from "@/components/ArticleCard";
 import SectionTitle from "@/components/SectionTitle";
 import CategoryIcon from "@/components/CategoryIcon";
+import {
+  articlePath,
+  breadcrumbListJsonLd,
+  categoryPath,
+  clampDescription,
+  collectionJsonLd,
+  subcategoryPath,
+} from "@/lib/site";
 
 type SubcategoryPageProps = {
   params: Promise<{ slug: string; subcategory: string }>;
 };
 
+export function generateStaticParams() {
+  return categories.flatMap((category) =>
+    category.subcategories.map((sub) => ({
+      slug: category.slug,
+      subcategory: sub.slug,
+    }))
+  );
+}
+
+function resolveSubcategory(slug: string, subcategory: string) {
+  const category = categories.find((item) => item.slug === slug);
+  if (!category) return null;
+
+  const sub = category.subcategories.find((item) => item.slug === subcategory);
+  if (!sub) return null;
+
+  return { category, sub };
+}
+
+export async function generateMetadata({
+  params,
+}: SubcategoryPageProps): Promise<Metadata> {
+  const { slug, subcategory } = await params;
+  const resolved = resolveSubcategory(slug, subcategory);
+
+  if (!resolved) {
+    return { title: "Topic Not Found", robots: { index: false, follow: false } };
+  }
+
+  const { category, sub } = resolved;
+  const description = clampDescription(
+    `${sub.description} ${sub.articles.length} practical ${sub.name.toLowerCase()} articles from HerSpace.`
+  );
+  const path = subcategoryPath(slug, subcategory);
+
+  return {
+    title: `${sub.name} Guides & Ideas`,
+    description,
+    keywords: [
+      `${sub.name.toLowerCase()} tips`,
+      `${sub.name.toLowerCase()} ideas`,
+      `${sub.name.toLowerCase()} guide`,
+      category.name.toLowerCase(),
+    ],
+    alternates: { canonical: path },
+    openGraph: {
+      type: "website",
+      title: `${sub.name} Guides & Ideas | HerSpace`,
+      description,
+      url: path,
+      images: [{ url: sub.image, width: 1600, height: 900, alt: sub.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${sub.name} Guides & Ideas | HerSpace`,
+      description,
+      images: [sub.image],
+    },
+    robots: { index: true, follow: true },
+  };
+}
+
 export default async function SubcategoryPage({ params }: SubcategoryPageProps) {
   const { slug, subcategory } = await params;
 
-  const category = categories.find((item) => item.slug === slug);
+  // Both failure branches used to return 200-status placeholder pages. Real
+  // 404s keep junk URLs out of the index.
+  const resolved = resolveSubcategory(slug, subcategory);
+  if (!resolved) notFound();
 
-  if (!category) {
-    return (
-      <main className="min-h-screen px-6 py-20 text-center">
-        <h1 className="text-4xl font-bold text-gray-900">Category Not Found</h1>
-        <Link href="/" className="mt-6 inline-block font-semibold text-purple-600">
-          ← Back to Home
-        </Link>
-      </main>
-    );
-  }
-
-  const currentSubcategory = category.subcategories.find(
-    (item) => item.slug === subcategory
-  );
-
-  if (!currentSubcategory) {
-    return (
-      <main className="min-h-screen px-6 py-20 text-center">
-        <h1 className="text-4xl font-bold text-gray-900">Topic Not Found</h1>
-        <Link
-          href={`/category/${category.slug}`}
-          className="mt-6 inline-block font-semibold text-purple-600"
-        >
-          ← Back to {category.name}
-        </Link>
-      </main>
-    );
-  }
+  const { category, sub: currentSubcategory } = resolved!;
 
   const articles = currentSubcategory.articles ?? [];
 
+  const trail = [
+    { name: category.name, path: categoryPath(category.slug) },
+    {
+      name: currentSubcategory.name,
+      path: subcategoryPath(category.slug, currentSubcategory.slug),
+    },
+  ];
+
   return (
     <main>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: collectionJsonLd({
+            name: `${currentSubcategory.name} Guides & Ideas`,
+            description: currentSubcategory.description,
+            path: subcategoryPath(slug, subcategory),
+            items: articles.map((article) => ({
+              name: article.title,
+              path: articlePath(slug, subcategory, article.id),
+            })),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: breadcrumbListJsonLd(trail) }}
+      />
 
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="relative h-80 md:h-96">
           <Image
             src={currentSubcategory.image}
-            alt={currentSubcategory.name}
+            alt={`${currentSubcategory.name} — ${currentSubcategory.description}`}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
@@ -165,8 +241,9 @@ export default async function SubcategoryPage({ params }: SubcategoryPageProps) 
                   <div className="relative h-32 overflow-hidden">
                     <Image
                       src={s.image}
-                      alt={s.name}
+                      alt={`More ${s.name} articles`}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition duration-300 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
